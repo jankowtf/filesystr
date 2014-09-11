@@ -9,7 +9,8 @@
 #'    Object containing file path information.
 #' @param ensure \code{logical}.
 #'    Ensure file existence (\code{TRUE}) or not (\code{FALSE}, default).
-#' @template threedot
+#' @param ... Further arguments of:
+#'    \code{\link[rapp.core.filesys]{asFile}}.
 #' @example inst/examples/asFile.r
 #' @seealso \code{
 #'    \link[base]{asFile-character-method}
@@ -100,7 +101,7 @@ setMethod(
   ) {
   
   if (ensure) {
-    dir.create(dirname(path), recursive = TRUE, showWarnings = FALSE)
+    ensureDirectory(path = dirname(path), ...)
     file.create(path, showWarnings = FALSE)
   }    
   path

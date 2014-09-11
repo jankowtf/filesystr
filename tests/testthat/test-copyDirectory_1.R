@@ -1,3 +1,4 @@
+context("copyDirectory_1")
 test_that(desc="copyDirectory", code={
   
   carefulCleanup <- function(x, pattern=basename(tempdir())) {

@@ -60,6 +60,7 @@ setMethod(f = "addClassAttribute",
     choices = c(
       "RappFilesystemCopyResultS3",
       "RappFilesystemCopyResultsS3",
+      "RappFilesystemDecomposedPathS3",
       "RappFilesystemDirectoryS3",
       "RappFilesystemFileS3"
     )

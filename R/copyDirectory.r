@@ -7,11 +7,6 @@
 #' @note Target directories that don't exist are created, silently (assuming  
 #' write permission).
 #' 
-#' @section General Remarks for \code{.ctx} and \code{.ns}
-#' Take into account possible non-missing values for \code{.ctx} and \code{.ns}
-#' depending which application context and/or namespace you want to use the 
-#' package in when you call methods of this package.
-#' 
 #' @param from \strong{Signature argument}.
 #' 		Object containing source directory information.
 #' @param to \strong{Signature argument}.

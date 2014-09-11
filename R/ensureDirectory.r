@@ -7,6 +7,9 @@
 #' 
 #' @param path \strong{Signature argument}.
 #' 		Object containing directory information.
+#' @param strict \code{\link{logical}}.
+#'    Should certain conditions trigger an error (\code{TRUE}) or simply result
+#'    in a return value of \code{FALSE} (\code{FALSE}, default).
 #' @param ... Further arguments to be passed to:
 #' 		\code{\link[base]{dir.create}}.
 #' @example inst/examples/ensureDirectory.r
@@ -24,6 +27,7 @@ setGeneric(
   ),
   def=function(
     path,
+    strict,
     ...
   ) {
     standardGeneric("ensureDirectory")       
@@ -54,14 +58,17 @@ setMethod(
   ), 
   definition = function(
     path,
+    strict, 
     ...
   ) {
     
-  return(ensureDirectory(
+  out <- ensureDirectory(
     path = asDirectory(path = path),
+    strict = strict,
     ...
-  ))
-    
+  )
+  out
+
   }
 )
 
@@ -82,6 +89,7 @@ setMethod(
 #' @template author
 #' @template references
 #' @export
+#' @import rapp.core.condition
 setMethod(
   f = "ensureDirectory", 
   signature = signature(
@@ -89,6 +97,7 @@ setMethod(
   ), 
   definition = function(
     path,
+    strict,
     ...
   ) {
     
@@ -98,8 +107,36 @@ setMethod(
 #   }        
   
   ## Create //
-  out <- sapply(path, dir.create, showWarnings = FALSE, ...)
-  names(out) <- normalizePath(names(out), winslash="/")
+  out <- withRestarts(
+    {
+      tmp <- sapply(path, dir.create, recursive = TRUE, showWarnings = FALSE, ...)
+#       print("DEBUG")
+      out <- rep(TRUE, length(path))
+      names(out) <- names(tmp)
+      out
+    },
+    warning = function(cond) {
+      invokeRestart("muffleWarning")
+    },
+    error = function(cond) {
+      if (strict) {
+        rapp.core.condition::signalCondition(
+          condition = "DirectoryEnsuranceFailed",
+          msg = c(
+            "Failed to ensure directory",
+            "Actual message" = conditionMessage(cond)
+          ),
+          ns = "rapp.core.filesys",
+          type = "error"
+        )
+      } else {
+        out <- rep(FALSE, length(path))
+        names(out) <- path
+        out
+      }
+    }
+  )
+  names(out) <- normalizePath(names(out), winslash="/", mustWork = FALSE)
   
   ## Return //
   return(out)

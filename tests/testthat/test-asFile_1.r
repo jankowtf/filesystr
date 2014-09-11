@@ -1,5 +1,4 @@
-context("package")
-
+context("asFile_1")
 test_that("asFile", {
 
   .cleanTempDir <- function(x) {

@@ -1,5 +1,4 @@
-context("package")
-
+context("asDirectory_1")
 test_that("asDirectory", {
 
   .cleanTempDir <- function(x) {

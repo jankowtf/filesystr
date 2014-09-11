@@ -1,4 +1,5 @@
-test_that(desc="createDirectory", code={
+context("ensureDirectory_1")
+test_that(desc="ensureDirectory", code={
   
   carefulCleanup <- function(x, pattern=basename(tempdir())) {
     out <- sapply(x, function(ii) {
@@ -12,30 +13,28 @@ test_that(desc="createDirectory", code={
   }
   
   ## Example content //
-  path <- file.path(tempdir(), "createDirectory")
-  sapply(path, dir.create, recursive=TRUE, showWarnings=FALSE)
+  path_0 <- file.path(tempdir(), "ensureDirectory")
+  expect_equivalent(
+    res <- ensureDirectory(path = path_0),
+    TRUE
+  )
   
-  path <- file.path(path, letters[1:3])
+  path <- file.path(path_0, letters[1:3])
   expected <- rep(TRUE, length(path))
   expect_equivalent(
-    res <- createDirectory(path = path),
+    res <- ensureDirectory(path = path),
     expected
   )
   
   ## Directory already exists //
   names(expected) <- normalizePath(path, winslash="/", mustWork=FALSE)
-  for (ii in seq(along=expected)) {
-    expected[ii] <- FALSE
-  }
-  expect_warning(
-    res <- createDirectory(path = path)
-  )
-  expect_equal(
-    res,
+  
+  expect_equivalent(
+    res <- ensureDirectory(path = path),
     expected
   )
   
   ## Clean up //
-  carefulCleanup(x=path)
+  on.exit(carefulCleanup(x = path))
   
 })

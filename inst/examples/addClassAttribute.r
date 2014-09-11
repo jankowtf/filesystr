@@ -13,6 +13,10 @@ rapp.core.filesys::addClassAttribute(
 )
 rapp.core.filesys::addClassAttribute(
   obj = obj, 
+  class_name = "RappFilesystemDecomposedPathS3"
+)
+rapp.core.filesys::addClassAttribute(
+  obj = obj, 
   class_name = "RappFilesystemDirectoryS3"
 )
 rapp.core.filesys::addClassAttribute(

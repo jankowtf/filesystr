@@ -1,11 +1,11 @@
-context("package")
-
+context("addClassAttribute_1")
 test_that("addClassAttribute", {
 
   obj <- "hello world!"
   expected <- c(
     "RappFilesystemCopyResultS3",
     "RappFilesystemCopyResultsS3",
+    "RappFilesystemDecomposedPathS3",
     "RappFilesystemDirectoryS3",
     "RappFilesystemFileS3"
   )

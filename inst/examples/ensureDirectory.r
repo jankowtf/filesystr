@@ -13,14 +13,14 @@
 }
 
 ## Example content //
-path <- file.path(tempdir(), "createDirectory")
+path <- file.path(tempdir(), "ensureDirectory")
 sapply(path, dir.create, recursive=TRUE, showWarnings=FALSE)
 
 path <- file.path(path, letters[1:3])
-createDirectory(path = path)
+ensureDirectory(path = path)
 
 ## If directory already exists //
-createDirectory(path = path)
+ensureDirectory(path = path)
 
 ## Clean up //
 .carefulCleanup(x = path)

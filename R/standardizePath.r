@@ -8,6 +8,10 @@
 #' 		Object containing path information.
 #' @param sep \code{\link{character}}. 
 #' 		String separator betwen directory levels in the output.
+#' @param shortform \code{\link{logical}}. Dimension: 1.
+#'   	Use shortforms (\code{TRUE}) for \code{getwd()} (i.e. \code{"."}, 
+#' 		\code{dirname(getwd()} (i.e. \code{".."} and \code{HOME} (i.e. \code{"~"})
+#' 		or not (\code{FALSE}, default).
 #' @template threedot
 #' @example inst/examples/standardizePath.r
 #' @seealso \code{
@@ -24,9 +28,62 @@ setGeneric(
   def = function(
     path = ".",
     sep = c("/", "\\"),
+    shortform = FALSE,
     ...
   ) {
     standardGeneric("standardizePath")       
+  }
+)
+
+#' @title 
+#' Standardize Path
+#' 
+#' @description 
+#' See \code{\link[rapp.core.filesys]{standardizePath}}.
+#' 
+#' @inheritParams standardizePath
+#' @param path \code{\link{missing}}. 
+#' @param sep \code{\link{character}}. 
+#'     String separator betwen directory levels in the output.
+#' @return See method 
+#'    \code{\link[rapp.core.filesys]{standardizePath-character-method}}.
+#' @example inst/examples/standardizePath.R
+#' @seealso \code{
+#' 		\link[rapp.core.filesys]{standardizePath}
+#' 		\link[rapp.core.filesys]{standardizePath-character-method}
+#' }
+#' @template author
+#' @template references
+#' @export
+setMethod(
+  f = "standardizePath", 
+  signature = signature(
+    path = "missing"
+  ), 
+  definition = function(
+    path,
+    sep,
+    shortform,
+    ...
+  ) {
+    
+#   ## Tracing //
+#   if (length(as.numeric(getOption("rapp")$trace$tracelevel))) {
+#     
+#   }        
+  
+  ## Dispatch //
+  out <- standardizePath(
+#     path = list.files(path),
+    path = path,
+    sep = sep,
+    shortform = shortform,
+    ...
+  )
+  
+  ## Return //
+  return(out)
+    
   }
 )
 
@@ -61,6 +118,7 @@ setMethod(
   definition = function(
     path,
     sep,
+    shortform,
     ...
   ) {
     
@@ -68,8 +126,8 @@ setMethod(
 #   if (length(as.numeric(getOption("rapp")$trace$tracelevel))) {
 #     
 #   }        
-  
-  sep <- match.arg(sep)
+  path <- gsub("/$", "", path)
+  sep <- match.arg(sep, c("/", "\\"))
   out <- ifelse(
     is.na(path),
     NA_character_,
@@ -80,59 +138,25 @@ setMethod(
     out <- character()
   }
   
-  ## Return //
-  return(out)
-    
-  }
-)
+#   ## Ensure "" is transformed to NA //
+#   ## This seems to be a more consistent choice for use cases
+#   if (length(idx <- which(out == ""))) {
+#     out[idx] <- NA_character_
+#   }
 
-#' @title 
-#' Standardize Path
-#' 
-#' @description 
-#' See \code{\link[rapp.core.filesys]{standardizePath}}.
-#' 
-#' @inheritParams standardizePath
-#' @param path \code{\link{missing}}. 
-#' @param sep \code{\link{character}}. 
-#'   	String separator betwen directory levels in the output.
-#' @return See method 
-#'    \code{\link[rapp.core.filesys]{standardizePath-character-method}}.
-#' @example inst/examples/standardizePath.R
-#' @seealso \code{
-#' 		\link[rapp.core.filesys]{standardizePath}
-#' 		\link[rapp.core.filesys]{standardizePath-character-method}
-#' }
-#' @template author
-#' @template references
-#' @export
-setMethod(
-  f = "standardizePath", 
-  signature = signature(
-    path = "missing"
-  ), 
-  definition = function(
-    path,
-    sep,
-    ...
-  ) {
-    
-#   ## Tracing //
-#   if (length(as.numeric(getOption("rapp")$trace$tracelevel))) {
-#     
-#   }        
-  
-  ## Dispatch //
-  out <- standardizePath(
-#     path = list.files(path),
-    path = path,
-    sep = sep,
-    ...
-  )
+  if (shortform) {
+    out <- gsub(paste0("^", normalizePath(path.expand("~"), 
+      winslash="/")), "~", out)
+    out[which(out == getwd())] <- "."
+    out[which(out == dirname(getwd()))] <- ".."
+    out <- gsub(paste0("^", getwd(), "/"), "", out)
+    out <- gsub(paste0("^", dirname(getwd()), "/"), "../", out)
+#     out <- gsub(paste0("^", normalizePath(path.expand("~"), 
+#       winslash="/"), "/"), "~/", out)
+  }
   
   ## Return //
   return(out)
     
   }
 )
-
