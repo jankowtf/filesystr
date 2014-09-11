@@ -69,7 +69,7 @@ setGeneric(
 #' 		Copy subdirectories and their content (\code{TRUE}) or not (\code{FALSE}).
 #' @return \code{\link{logical}}. A vector, values correspond to whether or 
 #'    not each file was successfully copied is invisibly returned.
-#' @example inst/examples/copyDirectory.R
+#' @example inst/examples/copyDirectory.r
 #' @seealso \code{
 #' 		\link[rapp.core.filesys]{copyDirectory}
 #' }

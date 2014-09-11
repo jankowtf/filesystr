@@ -47,7 +47,7 @@ setGeneric(
 #'     String separator betwen directory levels in the output.
 #' @return See method 
 #'    \code{\link[rapp.core.filesys]{standardizePath-character-method}}.
-#' @example inst/examples/standardizePath.R
+#' @example inst/examples/standardizePath.r
 #' @seealso \code{
 #' 		\link[rapp.core.filesys]{standardizePath}
 #' 		\link[rapp.core.filesys]{standardizePath-character-method}
@@ -103,7 +103,7 @@ setMethod(
 #'    \code{strip_extension} returns a character vector of the second column,
 #'    and \code{get_extension} returns a character vector of the third column.
 #' \code{recompose_path} returns a character vector of paths.
-#' @example inst/examples/standardizePath.R
+#' @example inst/examples/standardizePath.r
 #' @seealso \code{
 #' 		\link[rapp.core.filesys]{standardizePath}
 #' }

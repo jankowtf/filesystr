@@ -8,7 +8,7 @@
 #'    Object to be updated.
 #' @param class_name \strong{Signature argument}.
 #'    Object containing class name information.
-#' @example inst/examples/addClassAttribute.R
+#' @example inst/examples/addClassAttribute.r
 #' @seealso \code{
 #' 		\link[rapp.core.filesys]{addClassAttribute-character-method}
 #' }

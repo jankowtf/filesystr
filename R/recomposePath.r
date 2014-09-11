@@ -8,7 +8,7 @@
 #' @param path \strong{Signature argument}.
 #' 		Object containing path information.
 #' @template threedot
-#' @example inst/examples/recomposePath.R
+#' @example inst/examples/recomposePath.r
 #' @seealso \code{
 #'    \link[rapp.core.filesys]{recomposePath-RappFilesystemDecomposePathS3-method},
 #'    \link[rapp.core.filesys]{decomposePath}
