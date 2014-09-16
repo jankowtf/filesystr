@@ -1,5 +1,5 @@
 #' @title 
-#' As File
+#' As File Path
 #'
 #' @description 
 #' Turns a \code{character} object denoting a file path into an object 
@@ -10,16 +10,16 @@
 #' @param ensure \code{logical}.
 #'    Ensure file existence (\code{TRUE}) or not (\code{FALSE}, default).
 #' @param ... Further arguments of:
-#'    \code{\link[rapp.core.filesys]{asFile}}.
-#' @example inst/examples/asFile.r
+#'    \code{\link[rapp.core.filesys]{asFilePath}}.
+#' @example inst/examples/asFilePath.r
 #' @seealso \code{
-#'    \link[base]{asFile-character-method}
+#'    \link[base]{asFilePath-character-method}
 #' }
 #' @template author
 #' @template references
 #' @export 
 setGeneric(
-  name = "asFile", 
+  name = "asFilePath", 
   signature = c(
     "path"
   ),
@@ -28,28 +28,28 @@ setGeneric(
     ensure = FALSE,
     ...
   ) {
-  standardGeneric("asFile")
+  standardGeneric("asFilePath")
 })
 
 #' @title 
 #' As File
 #'
 #' @description 
-#' See \code{\link[base]{asFile}}
+#' See \code{\link[base]{asFilePath}}
 #' 
-#' @inheritParams asFile
+#' @inheritParams asFilePath
 #' @param path \code{\link{character}}.  
 #' @return \code{RappFilesystemFileS3}. Identical to \code{path} with 
 #'    updated class table. 
-#' @example inst/examples/asFile.r
+#' @example inst/examples/asFilePath.r
 #' @seealso \code{
-#'    \link[base]{asFile}
+#'    \link[base]{asFilePath}
 #' }
 #' @template author
 #' @template references
 #' @export 
 setMethod(
-  f = "asFile", 
+  f = "asFilePath", 
   signature = signature(
     path = "character"
   ), 
@@ -59,7 +59,7 @@ setMethod(
     ...
   ) {
     
-  return(asFile(
+  return(asFilePath(
     path = rapp.core.filesys::addClassAttribute(
       obj = path, 
       class_name = "RappFilesystemFileS3"
@@ -75,22 +75,22 @@ setMethod(
 #' As File
 #'
 #' @description 
-#' See \code{\link[base]{asFile}}
+#' See \code{\link[base]{asFilePath}}
 #' 
-#' @inheritParams asFile
+#' @inheritParams asFilePath
 #' @param path \code{\link{RappFilesystemFileS3}}.  
 #' @return See method
-#'    \code{\link{asFile-character-method}}.
-#' @example inst/examples/asFile.r
+#'    \code{\link{asFilePath-character-method}}.
+#' @example inst/examples/asFilePath.r
 #' @seealso \code{
-#'    \link[base]{asFile},
-#'    \link[base]{asFile-character-method}
+#'    \link[base]{asFilePath},
+#'    \link[base]{asFilePath-character-method}
 #' }
 #' @template author
 #' @template references
 #' @export 
 setMethod(
-  f = "asFile", 
+  f = "asFilePath", 
   signature = signature(
     path = "RappFilesystemFileS3"
   ), 

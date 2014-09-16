@@ -1,5 +1,5 @@
 #' @title 
-#' As Directory
+#' As Directory Path
 #'
 #' @description 
 #' Turns a \code{character} object denoting a directory path into an object 
@@ -11,16 +11,16 @@
 #'    Ensure Directory existence (\code{TRUE}) or not (\code{FALSE}, default).
 #' @param ... Further arguments passed to:
 #'    \code{\link[rapp.core.filesys]{ensureDirectory}}.
-#' @example inst/examples/asDirectory.r
+#' @example inst/examples/asDirectoryPath.r
 #' @seealso \code{
-#'    \link[base]{asDirectory-character-method},
+#'    \link[base]{asDirectoryPath-character-method},
 #' 		\link[rapp.core.filesys]{ensureDirectory}
 #' }
 #' @template author
 #' @template references
 #' @export 
 setGeneric(
-  name = "asDirectory", 
+  name = "asDirectoryPath", 
   signature = c(
     "path"
   ),
@@ -29,29 +29,29 @@ setGeneric(
     ensure = FALSE,
     ...
   ) {
-  standardGeneric("asDirectory")
+  standardGeneric("asDirectoryPath")
 })
 
 #' @title 
 #' As Directory
 #'
 #' @description 
-#' See \code{\link[base]{asDirectory}}
+#' See \code{\link[base]{asDirectoryPath}}
 #' 
-#' @inheritParams asDirectory
+#' @inheritParams asDirectoryPath
 #' @param path \code{\link{missing}}.  
 #' @return \code{RappFilesystemDirectoryS3}. Identical to \code{path} with 
 #'    updated class table. 
-#' @example inst/examples/asDirectory.r
+#' @example inst/examples/asDirectoryPath.r
 #' @seealso \code{
-#'    \link[base]{asDirectory-character-method},
+#'    \link[base]{asDirectoryPath-character-method},
 #'     \link[rapp.core.filesys]{ensureDirectory}
 #' }
 #' @template author
 #' @template references
 #' @export 
 setMethod(
-  f = "asDirectory", 
+  f = "asDirectoryPath", 
   signature = signature(
     path = "missing"
   ), 
@@ -61,7 +61,7 @@ setMethod(
     ...
   ) {
     
-  return(asDirectory(
+  return(asDirectoryPath(
     path = path,
     ensure = ensure,
     ...
@@ -74,22 +74,22 @@ setMethod(
 #' As Directory
 #'
 #' @description 
-#' See \code{\link[base]{asDirectory}}
+#' See \code{\link[base]{asDirectoryPath}}
 #' 
-#' @inheritParams asDirectory
+#' @inheritParams asDirectoryPath
 #' @param path \code{\link{character}}.  
 #' @return \code{RappFilesystemDirectoryS3}. Identical to \code{path} with 
 #'    updated class table. 
-#' @example inst/examples/asDirectory.r
+#' @example inst/examples/asDirectoryPath.r
 #' @seealso \code{
-#'    \link[base]{asDirectory},
+#'    \link[base]{asDirectoryPath},
 #'   	\link[rapp.core.filesys]{ensureDirectory}
 #' }
 #' @template author
 #' @template references
 #' @export 
 setMethod(
-  f = "asDirectory", 
+  f = "asDirectoryPath", 
   signature = signature(
     path = "character"
   ), 
@@ -99,7 +99,7 @@ setMethod(
     ...
   ) {
     
-  return(asDirectory(
+  return(asDirectoryPath(
     path = rapp.core.filesys::addClassAttribute(
       obj = path, 
       class_name = "RappFilesystemDirectoryS3"
@@ -115,23 +115,23 @@ setMethod(
 #' As Directory
 #'
 #' @description 
-#' See \code{\link[base]{asDirectory}}
+#' See \code{\link[base]{asDirectoryPath}}
 #' 
-#' @inheritParams asDirectory
+#' @inheritParams asDirectoryPath
 #' @param path \code{\link{RappFilesystemDirectoryS3}}.  
 #' @return See method
-#'    \code{\link{asDirectory-character-method}}.
-#' @example inst/examples/asDirectory.r
+#'    \code{\link{asDirectoryPath-character-method}}.
+#' @example inst/examples/asDirectoryPath.r
 #' @seealso \code{
-#'    \link[base]{asDirectory},
-#'    \link[base]{asDirectory-character-method},
+#'    \link[base]{asDirectoryPath},
+#'    \link[base]{asDirectoryPath-character-method},
 #'     \link[rapp.core.filesys]{ensureDirectory}
 #' }
 #' @template author
 #' @template references
 #' @export 
 setMethod(
-  f = "asDirectory", 
+  f = "asDirectoryPath", 
   signature = signature(
     path = "RappFilesystemDirectoryS3"
   ), 

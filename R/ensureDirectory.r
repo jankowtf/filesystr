@@ -63,7 +63,7 @@ setMethod(
   ) {
     
   out <- ensureDirectory(
-    path = asDirectory(path = path),
+    path = asDirectoryPath(path = path),
     strict = strict,
     ...
   )

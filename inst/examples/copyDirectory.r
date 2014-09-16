@@ -5,7 +5,7 @@ to <- file.path(tempdir(), "copyDirectory", c("to1", "to2"))
 sapply(to, dir.create, recursive=TRUE, showWarnings=FALSE)
 
 ## Utility functions //
-.openDirectory <- function(dir = getwd()) {
+.openRessource <- function(dir = getwd()) {
   if (.Platform['OS.type'] == "windows"){
     shell.exec(dir)
   } else {
@@ -27,8 +27,8 @@ sapply(to, dir.create, recursive=TRUE, showWarnings=FALSE)
 }
 
 ## Open directories in file system browser //
-.openDirectory(to[1])
-.openDirectory(to[2])
+.openRessource(to[1])
+.openRessource(to[2])
 
 ## One source, one target //
 copyDirectory(from = R.home("etc"), to = to[1])

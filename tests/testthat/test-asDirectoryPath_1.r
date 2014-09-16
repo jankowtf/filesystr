@@ -1,5 +1,5 @@
-context("asDirectory_1")
-test_that("asDirectory", {
+context("asDirectoryPath_1")
+test_that("asDirectoryPath", {
 
   .cleanTempDir <- function(x) {
     if (grepl(basename(tempdir()), x)) {
@@ -11,17 +11,17 @@ test_that("asDirectory", {
   
   ## character //
   expected <- "RappFilesystemDirectoryS3"
-  expect_is(res <- asDirectory(path = path_0), expected)
+  expect_is(res <- asDirectoryPath(path = path_0), expected)
   
   ## RappFilesystemDirectoryS3 //
-  expect_is(res <- asDirectory(path = asDirectory(path_0)), expected)
+  expect_is(res <- asDirectoryPath(path = asDirectoryPath(path_0)), expected)
   
   ## Ensure //
-  expect_true(file.exists(asDirectory(path = path_0, ensure = TRUE)))
+  expect_true(file.exists(asDirectoryPath(path = path_0, ensure = TRUE)))
   .cleanTempDir(x = path_0)
   
   expect_true(file.exists(
-    asDirectory(path = asDirectory(path_0), ensure = TRUE)
+    asDirectoryPath(path = asDirectoryPath(path_0), ensure = TRUE)
   ))
   .cleanTempDir(x = path_0)
   

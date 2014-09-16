@@ -23,13 +23,13 @@
 #'      \item{\code{\link[rapp.core.filesys]{copyDirectory}}: }{
 #'          Extends the features of \code{\link[base]{file.copy}}.
 #'      }
-#'      \item{\code{\link[rapp.core.filesys]{asDirectoryPath}}: }{
+#'      \item{\code{\link[rapp.core.filesys]{asDirectoryPathPath}}: }{
 #'          Clearly denotes a path to a directory ressource 
 #'          (provided as \code{\link{character}}) as an actual \emph{directory path}
 #'          of class \code{RappFilesystemDirectoryPathS3}. The main reason behind
 #'          this is to enable method dispatch based on this class.
 #'      }
-#'      \item{\code{\link[rapp.core.filesys]{asFilePath}}: }{
+#'      \item{\code{\link[rapp.core.filesys]{asFilePathPath}}: }{
 #'          Clearly denotes a path to a file ressource 
 #'          (provided as \code{\link{character}}) as an actual \emph{file path}
 #'          of class \code{RappFilesystemFilePathS3}. The main reason behind

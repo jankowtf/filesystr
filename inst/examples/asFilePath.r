@@ -8,24 +8,24 @@
 }
 
 ## Path //
-path_0 <- file.path(tempdir(), "path")
+path_0 <- file.path(tempdir(), "path/test.txt")
 
 ## character //
-res <- asDirectory(path = path_0)
+res <- asFilePath(path = path_0)
 res
 class(res)
 
-## RappFilesystemDirectoryS3 //
-res <- asDirectory(path = asDirectory(path_0))
+## RappFilesystemFileS3 //
+res <- asFilePath(path = asFilePath(path_0))
 res
 class(res)
 
 ## Ensure //
-file.exists(asDirectory(path = path_0, ensure = TRUE))
+file.exists(asFilePath(path = path_0, ensure = TRUE))
 .cleanTempDir(x = path_0)
 
 file.exists(
-  asDirectory(path = asDirectory(path_0), ensure = TRUE)
+  asFilePath(path = asFilePath(path_0), ensure = TRUE)
 )
 .cleanTempDir(x = path_0)
 
