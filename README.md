@@ -155,7 +155,7 @@ Get file name(s)
 getFileName(tempfile()) 
 ## --> file interpreted as directory due to "missing" extension
 getFileName(tempfile(), dir_slash = TRUE) 
-## TODO
+## TODO #1
 getFileName(paste0(tempfile(), ".txt"))
 
 getFileName(dec_1)
@@ -169,8 +169,7 @@ Get file extension(s)
 getFileExtension(tempfile()) 
 ## --> file interpreted as directory due to "missing" extension
 getFileExtension(tempfile(), dir_slash = TRUE) 
-## TODO
-getFileName(paste0(tempfile(), ".txt"))
+getFileExtension(paste0(tempfile(), ".txt"))
 
 getFileExtension(dec_1)
 getFileExtension(dec_2)
@@ -186,11 +185,11 @@ standardizePath("..")
 standardizePath("~")
 
 standardizePath(dec_1)
-## TODO
+## TODO #2
 standardizePath(dec_2)
-## TODO
+## TODO #2
 standardizePath(dec_3)
-## TODO
+## TODO #2
 ```
 
 ## File and directory locking
