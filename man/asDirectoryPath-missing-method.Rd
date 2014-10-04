@@ -2,9 +2,10 @@
 \docType{methods}
 \name{asDirectoryPath,missing-method}
 \alias{asDirectoryPath,missing-method}
-\title{As Directory}
+\title{As Directory Path}
 \usage{
-\S4method{asDirectoryPath}{missing}(path = ".", ensure = FALSE, ...)
+\S4method{asDirectoryPath}{missing}(path = ".", ensure = FALSE,
+  strict = FALSE, ...)
 }
 \arguments{
 \item{path}{\code{\link{missing}}.}
@@ -12,11 +13,16 @@
 \item{ensure}{\code{logical}.
 Ensure Directory existence (\code{TRUE}) or not (\code{FALSE}, default).}
 
+\item{strict}{\code{\link{logical}}.
+\code{TRUE}: \code{path} must exist and be a directory;
+\code{FALSE}: no prior checks. If \code{ensure = TRUE} then this is
+automatically set to \code{FALSE}.}
+
 \item{...}{Further arguments passed to:
 \code{\link[filesystr]{ensureDirectory}}.}
 }
 \value{
-\code{Directory.S3}. Identical to \code{path} with
+\code{DirectoryPath.S3}. Identical to \code{path} with
    updated class table.
 }
 \description{
@@ -25,34 +31,54 @@ See \code{\link[base]{asDirectoryPath}}
 \examples{
 \dontrun{
 
-## Auxiliary function //
-.cleanTempDir <- function(x) {
-  if (grepl(basename(tempdir()), x)) {
-    unlink(x, recursive = TRUE, force = TRUE)
-  }
-}
+##------------------------------------------------------------------------------
+## Method: character
+##------------------------------------------------------------------------------
 
 ## Path //
 path_0 <- file.path(tempdir(), "path")
 
-## character //
 res <- asDirectoryPath(path = path_0)
 res
 class(res)
 
-## Directory.S3 //
+## Strict:
+try(asDirectoryPath(path = path_0, strict = TRUE))
+## --> error as 'path' does not exist yet
+
+path <- tempfile()
+file.create(path)
+try(asDirectoryPath(path = path, strict = TRUE))
+## --> error as 'path' is a file and not a directory 
+
+## Note that 'ensure' overrules 'strict':
+asDirectoryPath(path = path_0, ensure = TRUE, strict = TRUE)
+file.exists(path_0)
+
+## Clean up //
+conditionalDelete(path = path_0, condition = tempdir())
+
+##------------------------------------------------------------------------------
+## Method: DirectoryPath.S3
+##------------------------------------------------------------------------------
+
+## Path //
+path_0 <- file.path(tempdir(), "path2")
+
 res <- asDirectoryPath(path = asDirectoryPath(path_0))
 res
 class(res)
 
-## Ensure //
-file.exists(asDirectoryPath(path = path_0, ensure = TRUE))
-.cleanTempDir(x = path_0)
+## Strict:
+try(res <- asDirectoryPath(path = asDirectoryPath(path_0), strict = TRUE))
+## --> error as 'path' does not exist yet
 
-file.exists(
-  asDirectoryPath(path = asDirectoryPath(path_0), ensure = TRUE)
-)
-.cleanTempDir(x = path_0)
+## Note that 'ensure' overrules 'strict':
+asDirectoryPath(path = asDirectoryPath(path_0), ensure = TRUE, strict = TRUE)
+file.exists(path_0)
+
+## Clean up //
+conditionalDelete(path = path_0, condition = tempdir())
 
 }
 }

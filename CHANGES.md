@@ -1,3 +1,15 @@
+# Version 0.1.4
+ - Merge branch 'feat-changeClasses' into develop
+ - implemented feature `changeClasses`
+ - Merge branch 'feat-coercionStrict' into develop
+ - implemented feature `strictCoercion`
+ - build commit
+ - Merge branch 'master' into develop
+ - Merge branch 'release-0.1.3'
+ - follow-up commit for v0.1.3
+
+----------
+
 # Version 0.1.3
  - Merge branch 'feat-conditionalDelete' into develop
  - implemented feature

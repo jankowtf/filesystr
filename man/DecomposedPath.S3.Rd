@@ -74,8 +74,8 @@ Janko Thyson \email{janko.thyson@rappster.de}
 }
 \seealso{
 \code{
-   \link[filesystr]{File.S3},
-  	\link[filesystr]{Directory.S3}
+   \link[filesystr]{FilePath.S3},
+  	\link[filesystr]{DirectoryPath.S3}
 }
 }
 

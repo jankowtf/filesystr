@@ -8,15 +8,15 @@
 #' @section Classes and constructors:
 #' 
 #' \itemize{
-#'    \item{\code{\link[filesystr]{Directory.S3}}: }{
+#'    \item{\code{\link[filesystr]{DirectoryPath.S3}}: }{
 #'    
 #'      Constructor function for instances of class 
-#'      \code{\link[filesystr]{Directory.S3}}
+#'      \code{\link[filesystr]{DirectoryPath.S3}}
 #'    }
-#'    \item{\code{\link[filesystr]{File.S3}}: }{
+#'    \item{\code{\link[filesystr]{FilePath.S3}}: }{
 #'    
 #'      Constructor function for instances of class 
-#'      \code{\link[filesystr]{File.S3}}
+#'      \code{\link[filesystr]{FilePath.S3}}
 #'    }
 #'    \item{\code{\link[filesystr]{DecomposedPath.S3}}: }{
 #'    
@@ -42,14 +42,14 @@
 #'    
 #'        Clearly denotes a path to a directory ressource 
 #'        (provided as \code{\link{character}}) as an actual \emph{directory path}
-#'        of class \code{Directory.S3}. The main reason behind
+#'        of class \code{DirectoryPath.S3}. The main reason behind
 #'        this is to enable method dispatch based on this class.
 #'    }
 #'    \item{\code{\link[filesystr]{asFilePath}}: }{
 #'    
 #'        Clearly denotes a path to a file ressource 
 #'        (provided as \code{\link{character}}) as an actual \emph{file path}
-#'        of class \code{File.S3}. The main reason behind
+#'        of class \code{FilePath.S3}. The main reason behind
 #'        this is to enable method dispatch based on this class.
 #'    }
 #'    \item{\code{\link[filesystr]{asDecomposedPath}}: }{

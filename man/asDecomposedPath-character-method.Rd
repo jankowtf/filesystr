@@ -13,7 +13,7 @@
 \code{\link[filesystr]{decomposePath}}.}
 }
 \value{
-\code{File.S3}. Identical to \code{path} with
+\code{FilePath.S3}. Identical to \code{path} with
    updated class table.
 }
 \description{

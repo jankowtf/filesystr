@@ -20,7 +20,7 @@
 #' @return Instance of class \code{DirectoryCopyResult.S3}.
 #' @example inst/examples/DirectoryCopyResult.S3.r
 #' @seealso \code{
-#'   	\link[DirectoryCopyResultsystr]{File.S3}
+#'   	\link[DirectoryCopyResultsystr]{FilePath.S3}
 #' }
 #' @template author
 #' @template references

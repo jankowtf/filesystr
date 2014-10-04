@@ -9,6 +9,10 @@
 #'    Object containing path information.
 #' @param ensure \code{logical}.
 #'    Ensure Directory existence (\code{TRUE}) or not (\code{FALSE}, default).
+#' @param strict \code{\link{logical}}.
+#'    \code{TRUE}: \code{path} must exist and be a directory;
+#'    \code{FALSE}: no prior checks. If \code{ensure = TRUE} then this is 
+#'    automatically set to \code{FALSE}.
 #' @param ... Further arguments passed to:
 #'    \code{\link[filesystr]{ensureDirectory}}.
 #' @example inst/examples/asDirectoryPath.r
@@ -27,20 +31,21 @@ setGeneric(
   def = function(
     path = ".",
     ensure = FALSE,
+    strict = FALSE,
     ...
   ) {
   standardGeneric("asDirectoryPath")
 })
 
 #' @title 
-#' As Directory
+#' As Directory Path
 #'
 #' @description 
 #' See \code{\link[base]{asDirectoryPath}}
 #' 
 #' @inheritParams asDirectoryPath
 #' @param path \code{\link{missing}}.  
-#' @return \code{Directory.S3}. Identical to \code{path} with 
+#' @return \code{DirectoryPath.S3}. Identical to \code{path} with 
 #'    updated class table. 
 #' @example inst/examples/asDirectoryPath.r
 #' @seealso \code{
@@ -58,12 +63,14 @@ setMethod(
   definition = function(
     path,
     ensure,
+    strict,
     ...
   ) {
     
   return(asDirectoryPath(
     path = path,
     ensure = ensure,
+    strict = strict,
     ...
   ))
     
@@ -71,14 +78,14 @@ setMethod(
 )
 
 #' @title 
-#' As Directory
+#' As Directory Path
 #'
 #' @description 
 #' See \code{\link[base]{asDirectoryPath}}
 #' 
 #' @inheritParams asDirectoryPath
 #' @param path \code{\link{character}}.  
-#' @return \code{Directory.S3}. Identical to \code{path} with 
+#' @return \code{DirectoryPath.S3}. Identical to \code{path} with 
 #'    updated class table. 
 #' @example inst/examples/asDirectoryPath.r
 #' @seealso \code{
@@ -96,12 +103,14 @@ setMethod(
   definition = function(
     path,
     ensure,
+    strict,
     ...
   ) {
     
   return(asDirectoryPath(
-    path = filesystr::Directory.S3(path),
+    path = filesystr::DirectoryPath.S3(standardizePath(path)),
     ensure = ensure,
+    strict = strict,
     ...
   ))
   
@@ -109,13 +118,13 @@ setMethod(
 )
 
 #' @title 
-#' As Directory
+#' As Directory Path
 #'
 #' @description 
 #' See \code{\link[base]{asDirectoryPath}}
 #' 
 #' @inheritParams asDirectoryPath
-#' @param path \code{\link{Directory.S3}}.  
+#' @param path \code{\link{DirectoryPath.S3}}.  
 #' @return See method
 #'    \code{\link{asDirectoryPath-character-method}}.
 #' @example inst/examples/asDirectoryPath.r
@@ -130,17 +139,33 @@ setMethod(
 setMethod(
   f = "asDirectoryPath", 
   signature = signature(
-    path = "Directory.S3"
+    path = "DirectoryPath.S3"
   ), 
   definition = function(
     path,
     ensure,
+    strict,
     ...
   ) {
   
   if (ensure) {
+    strict <- FALSE
     ensureDirectory(path = path, ...)
   }    
+  if (strict) {
+    is_dir <- file.info(path)$isdir
+    if (is.na(is_dir) || !is_dir) {
+      conditionr::signalCondition(
+        condition = "NoADirectoryPath",
+        msg = c(
+          "Not a directory path",
+          Path = path
+        ),
+        ns = "filesystr",
+        type = "error"
+      )
+    }
+  }
   path
     
   } 

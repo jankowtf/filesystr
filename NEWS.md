@@ -1,3 +1,22 @@
+# CHANGES IN VERSION 0.1.4
+
+## NEW FEATURES
+
+- added: argument `strict` in `asDirectoryPath()` and `asFilePath()`
+
+## BUG FIXES
+
+## MAJOR CHANGES
+
+- renamed: `Directory.S3` --> `DirectoryPath.S3`
+- renamed: `File.S3` --> `FilePath.S3`
+
+## MINOR CHANGES
+
+## MISC
+
+-----
+
 # CHANGES IN VERSION 0.1.3
 
 ## NEW FEATURES

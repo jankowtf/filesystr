@@ -14,22 +14,49 @@ require("filesystr")
 
 ## Classes and coercion methods
 
-Coerce to class `Directory.S3`
+Coerce to class `DirectoryPath.S3`
 
 ```
+## Non-strict //
 asDirectoryPath(tempdir())
+# [1] "C:/Users/jat/AppData/Local/Temp/RtmpKwfByi"
+# attr(,"class")
+# [1] "DirectoryPath.S3" "character"  
+
+## Strict //
+asDirectoryPath(file.path(tempdir(), "test"), strict = TRUE)
+#  Error in asDirectoryPath(path = filesystr::DirectoryPath.S3(standardizePath(path)),  : 
+#   2014-10-04 23:52:06/filesystr/asDirectoryPath/NoADirectoryPath> 
+# Not a directory path //
+# [1] * Path: C:/Users/jat/AppData/Local/Temp/RtmpKwfByi/test 
+
+## Ensure (overrules 'strict') //
+asDirectoryPath(file.path(tempdir(), "test"), ensure = TRUE, strict = TRUE)
 ```
 
-Coerce to class `File.S3`
+Coerce to class `FilePath.S3`
 
 ```
+## Non-strict //
 asFilePath(tempfile())
+# [1] "C:/Users/jat/AppData/Local/Temp/RtmpKwfByi/file15741bc81e16"
+# attr(,"class")
+# [1] "FilePath.S3"   "character"
+
+## Strict //
+asFilePath(tempfile(), strict = TRUE)
+#  Error in asFilePath(path = filesystr::FilePath.S3(standardizePath(path)),  : 
+#   2014-10-04 23:53:22/filesystr/asFilePath/NoAFilePath> 
+# Not a file path //
+# [1] * Path: C:/Users/jat/AppData/Local/Temp/RtmpKwfByi/file1574442879be 
 ```
 
 Coerce to class `DecomposedPath.S3`
 
 ```
 asDecomposedPath(paste0(tempfile(), ".txt"))
+#                                    directory        filename extension
+# 1 C:/Users/jat/AppData/Local/Temp/RtmpKwfByi file15745a83bb3       txt
 ```
 
 ## Copy directories
@@ -224,13 +251,13 @@ openRessource(path)
 Directory
 
 ```
-filesystr::Directory.S3(tempdir())
+filesystr::DirectoryPath.S3(tempdir())
 ```
 
 File
 
 ```
-filesystr::File.S3(tempfile())
+filesystr::FilePath.S3(tempfile())
 ```
 
 Decomposed path
