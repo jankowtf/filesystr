@@ -1,4 +1,4 @@
-filesystr (v0.1.3)
+filesystr (v0.1.5)
 ======
 
 Functionality for processing file system ressources
@@ -76,7 +76,7 @@ openRessource(to[2])
 
 ```
 copyDirectory(from = R.home("etc"), to = to[1])
-conditionalDelete(to[1], condition = basename(tempdir()), content_only = TRUE)
+conditionalDelete(to[1], condition = tempdir(), content_only = TRUE)
 ```
 
 ### One source directory, two target directories
@@ -84,7 +84,7 @@ conditionalDelete(to[1], condition = basename(tempdir()), content_only = TRUE)
 ```
 to <- file.path(tempdir(), "copyDirectory", c("to1", "to2"))
 copyDirectory(from = R.home("etc"), to = to)
-conditionalDelete(to, condition = basename(tempdir()), content_only = TRUE)
+conditionalDelete(to, condition = tempdir(), content_only = TRUE)
 ```
 
 ### Two source directories, one target directory
@@ -93,14 +93,14 @@ Combines content of 'etc' and 'tests'. If there would be any conflicts, the woul
 
 ```
 copyDirectory(from = c(R.home("etc"), R.home("tests")), to = to[1])
-conditionalDelete(to, condition = basename(tempdir()), content_only = TRUE)
+conditionalDelete(to, condition = tempdir(), content_only = TRUE)
 ```
 
 ### Two source directories, two targets directories
 
 ```
 copyDirectory(from = c(R.home("etc"), R.home("tests")), to = to)
-conditionalDelete(to, condition = basename(tempdir()), content_only = TRUE)
+conditionalDelete(to, condition = tempdir(), content_only = TRUE)
 ```
 
 **Non-recursive copying**:
@@ -115,7 +115,7 @@ This will add the actual content of the subdirectories.
 
 ```
 copyDirectory(from = R.home("etc"), to = to[1], overwrite = TRUE)
-conditionalDelete(to, condition = basename(tempdir()))
+conditionalDelete(to, condition = tempdir())
 ```
 
 ## Path decompositon and recomposition
