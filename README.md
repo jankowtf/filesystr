@@ -40,21 +40,6 @@ asDecomposedPath(paste0(tempfile(), ".txt"))
 to <- file.path(tempdir(), "copyDirectory", c("to1", "to2"))
 sapply(to, dir.create, recursive=TRUE, showWarnings=FALSE)
 
-## Utility function //
-.carefulCleanup <- function(x, pattern=basename(tempdir()), content.only=TRUE) {
-  out <- sapply(x, function(ii) {
-      out <- FALSE
-      if (grepl(pattern, ii)) {
-        out <- !as.logical(unlink(ii, recursive=TRUE, force=TRUE))
-        if (out & content.only) {
-          dir.create(ii, recursive=TRUE, showWarnings=FALSE)    
-        }
-      }        
-      out
-    })
-  invisible(out)
-}
-
 ## Open directories in file system browser //
 openRessource(to[1])
 openRessource(to[2])
@@ -64,7 +49,7 @@ openRessource(to[2])
 
 ```
 copyDirectory(from = R.home("etc"), to = to[1])
-.carefulCleanup(to[1])
+conditionalDelete(to[1], condition = basename(tempdir()), content_only = TRUE)
 ```
 
 ### One source directory, two target directories
@@ -72,7 +57,7 @@ copyDirectory(from = R.home("etc"), to = to[1])
 ```
 to <- file.path(tempdir(), "copyDirectory", c("to1", "to2"))
 copyDirectory(from = R.home("etc"), to = to)
-.carefulCleanup(to)
+conditionalDelete(to, condition = basename(tempdir()), content_only = TRUE)
 ```
 
 ### Two source directories, one target directory
@@ -81,14 +66,14 @@ Combines content of 'etc' and 'tests'. If there would be any conflicts, the woul
 
 ```
 copyDirectory(from = c(R.home("etc"), R.home("tests")), to = to[1])
-.carefulCleanup(to)
+conditionalDelete(to, condition = basename(tempdir()), content_only = TRUE)
 ```
 
 ### Two source directories, two targets directories
 
 ```
 copyDirectory(from = c(R.home("etc"), R.home("tests")), to = to)
-.carefulCleanup(to)
+conditionalDelete(to, condition = basename(tempdir()), content_only = TRUE)
 ```
 
 **Non-recursive copying**:
@@ -103,7 +88,7 @@ This will add the actual content of the subdirectories.
 
 ```
 copyDirectory(from = R.home("etc"), to = to[1], overwrite = TRUE)
-.carefulCleanup(to[1])
+conditionalDelete(to, condition = basename(tempdir()))
 ```
 
 ## Path decompositon and recomposition
@@ -253,7 +238,7 @@ Decomposed path
 ```
 filesystr::DecomposedPath.S3(
   data.frame(
-      directory = tempdir(), 
+      directory = tempdir(),  
       filename = basename(tempfile()), 
       extension = ".txt"
   )
