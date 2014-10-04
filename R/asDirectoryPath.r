@@ -45,7 +45,7 @@ setGeneric(
 #' 
 #' @inheritParams asDirectoryPath
 #' @param path \code{\link{missing}}.  
-#' @return \code{Directory.S3}. Identical to \code{path} with 
+#' @return \code{DirectoryPath.S3}. Identical to \code{path} with 
 #'    updated class table. 
 #' @example inst/examples/asDirectoryPath.r
 #' @seealso \code{
@@ -85,7 +85,7 @@ setMethod(
 #' 
 #' @inheritParams asDirectoryPath
 #' @param path \code{\link{character}}.  
-#' @return \code{Directory.S3}. Identical to \code{path} with 
+#' @return \code{DirectoryPath.S3}. Identical to \code{path} with 
 #'    updated class table. 
 #' @example inst/examples/asDirectoryPath.r
 #' @seealso \code{
@@ -108,7 +108,7 @@ setMethod(
   ) {
     
   return(asDirectoryPath(
-    path = filesystr::Directory.S3(standardizePath(path)),
+    path = filesystr::DirectoryPath.S3(standardizePath(path)),
     ensure = ensure,
     strict = strict,
     ...
@@ -124,7 +124,7 @@ setMethod(
 #' See \code{\link[base]{asDirectoryPath}}
 #' 
 #' @inheritParams asDirectoryPath
-#' @param path \code{\link{Directory.S3}}.  
+#' @param path \code{\link{DirectoryPath.S3}}.  
 #' @return See method
 #'    \code{\link{asDirectoryPath-character-method}}.
 #' @example inst/examples/asDirectoryPath.r
@@ -139,7 +139,7 @@ setMethod(
 setMethod(
   f = "asDirectoryPath", 
   signature = signature(
-    path = "Directory.S3"
+    path = "DirectoryPath.S3"
   ), 
   definition = function(
     path,

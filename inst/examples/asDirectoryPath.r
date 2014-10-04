@@ -28,7 +28,7 @@ file.exists(path_0)
 conditionalDelete(path = path_0, condition = tempdir())
 
 ##------------------------------------------------------------------------------
-## Method: Directory.S3
+## Method: DirectoryPath.S3
 ##------------------------------------------------------------------------------
 
 ## Path //

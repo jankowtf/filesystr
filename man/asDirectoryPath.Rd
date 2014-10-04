@@ -37,7 +37,7 @@ res <- asDirectoryPath(path = path_0)
 res
 class(res)
 
-## Directory.S3 //
+## DirectoryPath.S3 //
 res <- asDirectoryPath(path = asDirectoryPath(path_0))
 res
 class(res)

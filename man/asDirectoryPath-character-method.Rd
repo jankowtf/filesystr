@@ -16,7 +16,7 @@ Ensure Directory existence (\code{TRUE}) or not (\code{FALSE}, default).}
 \code{\link[filesystr]{ensureDirectory}}.}
 }
 \value{
-\code{Directory.S3}. Identical to \code{path} with
+\code{DirectoryPath.S3}. Identical to \code{path} with
    updated class table.
 }
 \description{
@@ -40,7 +40,7 @@ res <- asDirectoryPath(path = path_0)
 res
 class(res)
 
-## Directory.S3 //
+## DirectoryPath.S3 //
 res <- asDirectoryPath(path = asDirectoryPath(path_0))
 res
 class(res)

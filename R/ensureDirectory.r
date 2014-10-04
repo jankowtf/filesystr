@@ -79,7 +79,7 @@ setMethod(
 #' See \code{\link[filesystr]{ensureDirectory}}.
 #' 
 #' @inheritParams ensureDirectory
-#' @param path \code{\link{Directory.S3}}.
+#' @param path \code{\link{DirectoryPath.S3}}.
 #' @return \code{\link{logical}} vector. \code{TRUE} for success, \code{FALSE}
 #' 		for failure.
 #' @example inst/examples/ensureDirectory.r
@@ -93,7 +93,7 @@ setMethod(
 setMethod(
   f = "ensureDirectory", 
   signature = signature(
-    path = "Directory.S3"
+    path = "DirectoryPath.S3"
   ), 
   definition = function(
     path,

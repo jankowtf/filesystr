@@ -3,7 +3,7 @@
 #'
 #' @description 
 #' Turns a \code{character} object denoting a file path into an object 
-#' of class \code{File.S3}.
+#' of class \code{FilePath.S3}.
 #' 
 #' @param path \strong{Signature argument}.
 #'    Object containing file path information.
@@ -44,7 +44,7 @@ setGeneric(
 #' 
 #' @inheritParams asFilePath
 #' @param path \code{\link{character}}.  
-#' @return \code{File.S3}. Identical to \code{path} with 
+#' @return \code{FilePath.S3}. Identical to \code{path} with 
 #'    updated class table. 
 #' @example inst/examples/asFilePath.r
 #' @seealso \code{
@@ -66,7 +66,7 @@ setMethod(
   ) {
     
   return(asFilePath(
-    path = filesystr::File.S3(standardizePath(path)),
+    path = filesystr::FilePath.S3(standardizePath(path)),
     ensure = ensure,
     strict = strict,
     ...
@@ -82,7 +82,7 @@ setMethod(
 #' See \code{\link[base]{asFilePath}}
 #' 
 #' @inheritParams asFilePath
-#' @param path \code{\link{File.S3}}.  
+#' @param path \code{\link{FilePath.S3}}.  
 #' @return See method
 #'    \code{\link{asFilePath-character-method}}.
 #' @example inst/examples/asFilePath.r
@@ -96,7 +96,7 @@ setMethod(
 setMethod(
   f = "asFilePath", 
   signature = signature(
-    path = "File.S3"
+    path = "FilePath.S3"
   ), 
   definition = function(
     path,
