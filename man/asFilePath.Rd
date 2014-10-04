@@ -3,7 +3,7 @@
 \alias{asFilePath}
 \title{As File Path}
 \usage{
-asFilePath(path = ".", ensure = FALSE, ...)
+asFilePath(path = ".", ensure = FALSE, strict = FALSE, ...)
 }
 \arguments{
 \item{path}{\strong{Signature argument}.
@@ -11,6 +11,11 @@ Object containing file path information.}
 
 \item{ensure}{\code{logical}.
 Ensure file existence (\code{TRUE}) or not (\code{FALSE}, default).}
+
+\item{strict}{\code{\link{logical}}.
+\code{TRUE}: \code{path} must exist and be a file;
+\code{FALSE}: no prior checks. If \code{ensure = TRUE} then this is
+automatically set to \code{FALSE}.}
 
 \item{...}{Further arguments of:
 \code{\link[filesystr]{asFilePath}}.}
@@ -22,34 +27,52 @@ of class \code{FilePath.S3}.
 \examples{
 \dontrun{
 
-## Auxiliary function //
-.cleanTempDir <- function(x) {
-  if (grepl(basename(tempdir()), x)) {
-    unlink(x, recursive = TRUE, force = TRUE)
-  }
-}
-
+##------------------------------------------------------------------------------
+## Method: character
+##------------------------------------------------------------------------------  
+  
 ## Path //
 path_0 <- file.path(tempdir(), "path/test.txt")
 
-## character //
 res <- asFilePath(path = path_0)
 res
 class(res)
 
-## FilePath.S3 //
+## Strict:
+try(asFilePath(path = path_0, strict = TRUE))
+## --> error as 'path' does not exist yet
+
+try(asFilePath(path = tempdir(), strict = TRUE))
+## --> error as 'path' is a directory and not a file 
+
+## Note that 'ensure' overrules 'strict':
+asFilePath(path = path_0, ensure = TRUE, strict = TRUE)
+file.exists(path_0)
+
+## Clean up //
+conditionalDelete(path = path_0, condition = tempdir())
+
+##------------------------------------------------------------------------------
+## Method: FilePath.S3
+##------------------------------------------------------------------------------
+
+## Path //
+path_0 <- file.path(tempdir(), "path/test2.txt")
+
 res <- asFilePath(path = asFilePath(path_0))
 res
 class(res)
 
-## Ensure //
-file.exists(asFilePath(path = path_0, ensure = TRUE))
-.cleanTempDir(x = path_0)
+## Strict:
+try(res <- asFilePath(path = asFilePath(path_0), strict = TRUE))
+## --> error as 'path' does not exist yet
 
-file.exists(
-  asFilePath(path = asFilePath(path_0), ensure = TRUE)
-)
-.cleanTempDir(x = path_0)
+## Note that 'ensure' overrules 'strict':
+asFilePath(path = asFilePath(path_0), ensure = TRUE, strict = TRUE)
+file.exists(path_0)
+
+## Clean up //
+conditionalDelete(path = path_0, condition = tempdir())
 
 }
 }
