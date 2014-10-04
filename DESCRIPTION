@@ -5,10 +5,13 @@ Version: 0.1.5
 Date: 2014-10-05 00:07:52
 Author: Janko Thyson [aut, cre]
 Maintainer: Janko Thyson <janko.thyson@gmail.com>
-Description: Complements base functionality with respect to handling paths of file
-         system ressources.
+Description: Complements base functionality with respect to handling paths of
+    file system ressources.
 License: GPL (>= 2)
 Roxygen: list(wrap = FALSE)
 NeedsCompilation: no
 Repository: CRAN
-Imports: assertive, conditionr, stringr
+Imports:
+    assertive,
+    conditionr,
+    stringr
