@@ -44,13 +44,6 @@ to <- file.path(tempdir(), "copyDirectory", c("to1", "to2"))
 sapply(to, dir.create, recursive=TRUE, showWarnings=FALSE)
 
 ## Utility functions //
-.openRessource <- function(dir = getwd()) {
-  if (.Platform['OS.type'] == "windows"){
-    shell.exec(dir)
-  } else {
-    system(paste(Sys.getenv("R_BROWSER"), dir))
-  }
-}
 .carefulCleanup <- function(x, pattern=basename(tempdir()), content.only=TRUE) {
   out <- sapply(x, function(ii) {
       out <- FALSE
