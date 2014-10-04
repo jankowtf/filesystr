@@ -40,7 +40,7 @@ setGeneric(
 #' 
 #' @inheritParams asDirectoryPath
 #' @param path \code{\link{missing}}.  
-#' @return \code{RappFilesystemDirectoryS3}. Identical to \code{path} with 
+#' @return \code{Directory.S3}. Identical to \code{path} with 
 #'    updated class table. 
 #' @example inst/examples/asDirectoryPath.r
 #' @seealso \code{
@@ -78,7 +78,7 @@ setMethod(
 #' 
 #' @inheritParams asDirectoryPath
 #' @param path \code{\link{character}}.  
-#' @return \code{RappFilesystemDirectoryS3}. Identical to \code{path} with 
+#' @return \code{Directory.S3}. Identical to \code{path} with 
 #'    updated class table. 
 #' @example inst/examples/asDirectoryPath.r
 #' @seealso \code{
@@ -102,7 +102,7 @@ setMethod(
   return(asDirectoryPath(
     path = filesystr::addClassAttribute(
       obj = path, 
-      class_name = "RappFilesystemDirectoryS3"
+      class_name = "Directory.S3"
     ),
     ensure = ensure,
     ...
@@ -118,7 +118,7 @@ setMethod(
 #' See \code{\link[base]{asDirectoryPath}}
 #' 
 #' @inheritParams asDirectoryPath
-#' @param path \code{\link{RappFilesystemDirectoryS3}}.  
+#' @param path \code{\link{Directory.S3}}.  
 #' @return See method
 #'    \code{\link{asDirectoryPath-character-method}}.
 #' @example inst/examples/asDirectoryPath.r
@@ -133,7 +133,7 @@ setMethod(
 setMethod(
   f = "asDirectoryPath", 
   signature = signature(
-    path = "RappFilesystemDirectoryS3"
+    path = "Directory.S3"
   ), 
   definition = function(
     path,

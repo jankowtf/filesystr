@@ -10,10 +10,10 @@ test_that("asDirectoryPath", {
   path_0  <- file.path(tempdir(), "path")
   
   ## character //
-  expected <- "RappFilesystemDirectoryS3"
+  expected <- "Directory.S3"
   expect_is(res <- asDirectoryPath(path = path_0), expected)
   
-  ## RappFilesystemDirectoryS3 //
+  ## Directory.S3 //
   expect_is(res <- asDirectoryPath(path = asDirectoryPath(path_0)), expected)
   
   ## Ensure //

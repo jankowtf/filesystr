@@ -157,7 +157,7 @@ setMethod(
       }
       out <- list(from = from, to = to, elements = tmp)
       out <- filesystr::addClassAttribute(obj = out, 
-        class_name = "RappFilesystemCopyResultS3")
+        class_name = "CopyResult.S3")
     },
     warning = function(cond) {
       setwd(wd_0)
@@ -182,7 +182,7 @@ setMethod(
   )
   out <- filesystr::addClassAttribute(
     obj = out, 
-    class_name = "RappFilesystemCopyResultsS3"
+    class_name = "CopyResults.S3"
   )
   
   ## Return //

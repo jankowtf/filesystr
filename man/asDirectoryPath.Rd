@@ -37,7 +37,7 @@ res <- asDirectoryPath(path = path_0)
 res
 class(res)
 
-## RappFilesystemDirectoryS3 //
+## Directory.S3 //
 res <- asDirectoryPath(path = asDirectoryPath(path_0))
 res
 class(res)

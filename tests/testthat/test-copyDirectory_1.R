@@ -44,8 +44,8 @@ test_that(desc="copyDirectory", code={
   expected <- expected_raw
   expected[[1]]$from 	<- from_stand
   expected[[1]]$to 	<- to_stand
-  class(expected[[1]]) <- c("RappFilesystemCopyResultS3", class(expected[[1]]))
-  class(expected) <- c("RappFilesystemCopyResultsS3", class(expected))
+  class(expected[[1]]) <- c("CopyResult.S3", class(expected[[1]]))
+  class(expected) <- c("CopyResults.S3", class(expected))
   expect_equal(
     res <- copyDirectory(from = from, to = to),
     expected
@@ -56,10 +56,10 @@ test_that(desc="copyDirectory", code={
   expected <- expected_raw
   expected[[1]]$from 	<- from_stand
   expected[[1]]$to 	<- to_stand
-  class(expected[[1]]) <- c("RappFilesystemCopyResultS3", class(expected[[1]]))
+  class(expected[[1]]) <- c("CopyResult.S3", class(expected[[1]]))
   expected[[2]] <- expected[[1]]
   expected[[2]]$to <- to_stand2
-  class(expected) <- c("RappFilesystemCopyResultsS3", class(expected))
+  class(expected) <- c("CopyResults.S3", class(expected))
   expect_equal(
     res <- copyDirectory(from = from, to = c(to, to = to2), ensure_to = TRUE),
     expected
@@ -70,11 +70,11 @@ test_that(desc="copyDirectory", code={
   expected <- expected_raw
   expected[[1]]$from 	<- from_stand
   expected[[1]]$to 	<- to_stand
-  class(expected[[1]]) <- c("RappFilesystemCopyResultS3", class(expected[[1]]))
+  class(expected[[1]]) <- c("CopyResult.S3", class(expected[[1]]))
   expected[[2]] <- expected[[1]]
   expected[[2]]$from	<- from_stand2
   expected[[2]]$to 	<- to_stand
-  class(expected) <- c("RappFilesystemCopyResultsS3", class(expected))
+  class(expected) <- c("CopyResults.S3", class(expected))
   expect_equal(
     res <- copyDirectory(from = c(from, from2), 
       to = to, overwrite = TRUE, ensure_to = TRUE
@@ -87,11 +87,11 @@ test_that(desc="copyDirectory", code={
   expected <- expected_raw
   expected[[1]]$from 	<- from_stand
   expected[[1]]$to 	<- to_stand
-  class(expected[[1]]) <- c("RappFilesystemCopyResultS3", class(expected[[1]]))
+  class(expected[[1]]) <- c("CopyResult.S3", class(expected[[1]]))
   expected[[2]] <- expected[[1]]
   expected[[2]]$from 	<- from_stand2
   expected[[2]]$to 	<- to_stand2
-  class(expected) <- c("RappFilesystemCopyResultsS3", class(expected))
+  class(expected) <- c("CopyResults.S3", class(expected))
   expect_equal(
     res <- copyDirectory(
       from = c(from, from2), 
@@ -107,11 +107,11 @@ test_that(desc="copyDirectory", code={
   expected <- expected_raw
   expected[[1]]$from 	<- from_stand
   expected[[1]]$to 	<- to_stand
-  class(expected[[1]]) <- c("RappFilesystemCopyResultS3", class(expected[[1]]))
+  class(expected[[1]]) <- c("CopyResult.S3", class(expected[[1]]))
   tmp <- list.files(from)
   expected[[1]]$elements <- rep(TRUE, length(tmp))
   names(expected[[1]]$elements) <- tmp
-  class(expected) <- c("RappFilesystemCopyResultsS3", class(expected))
+  class(expected) <- c("CopyResults.S3", class(expected))
   rm(tmp)
   expect_equal(
     res <- copyDirectory(
@@ -127,8 +127,8 @@ test_that(desc="copyDirectory", code={
   expected <- expected_raw
   expected[[1]]$from 	<- from_stand
   expected[[1]]$to 	<- to_stand
-  class(expected[[1]]) <- c("RappFilesystemCopyResultS3", class(expected[[1]]))
-  class(expected) <- c("RappFilesystemCopyResultsS3", class(expected))
+  class(expected[[1]]) <- c("CopyResult.S3", class(expected[[1]]))
+  class(expected) <- c("CopyResults.S3", class(expected))
   expect_equal(
     res <- copyDirectory(from = from, to = to, overwrite = FALSE),
     expected

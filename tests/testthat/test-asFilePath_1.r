@@ -10,10 +10,10 @@ test_that("asFilePath", {
   path_0 <- file.path(tempdir(), "path/test.txt")
   
   ## character //
-  expected <- "RappFilesystemFileS3"
+  expected <- "File.S3"
   expect_is(res <- asFilePath(path = path_0), expected)
   
-  ## RappFilesystemFileS3 //
+  ## File.S3 //
   expect_is(res <- asFilePath(path = asFilePath(path_0)), expected)
   
   ## Ensure //

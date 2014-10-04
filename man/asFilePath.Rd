@@ -17,7 +17,7 @@ Ensure file existence (\code{TRUE}) or not (\code{FALSE}, default).}
 }
 \description{
 Turns a \code{character} object denoting a file path into an object
-of class \code{RappFilesystemFileS3}.
+of class \code{File.S3}.
 }
 \examples{
 \dontrun{
@@ -37,7 +37,7 @@ res <- asFilePath(path = path_0)
 res
 class(res)
 
-## RappFilesystemFileS3 //
+## File.S3 //
 res <- asFilePath(path = asFilePath(path_0))
 res
 class(res)

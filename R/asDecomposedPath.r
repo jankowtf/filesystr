@@ -36,7 +36,7 @@ setGeneric(
 #' 
 #' @inheritParams asDecomposedPath
 #' @param path \code{\link{character}}.  
-#' @return \code{RappFilesystemFileS3}. Identical to \code{path} with 
+#' @return \code{File.S3}. Identical to \code{path} with 
 #'    updated class table. 
 #' @example inst/examples/asDecomposedPath.r
 #' @seealso \code{
@@ -68,7 +68,7 @@ setMethod(
 #' See \code{\link[base]{asDecomposedPath}}
 #' 
 #' @inheritParams asDecomposedPath
-#' @param path \code{\link{RappFilesystemFileS3}}.  
+#' @param path \code{\link{File.S3}}.  
 #' @return See method
 #'    \code{\link{asDecomposedPath-character-method}}.
 #' @example inst/examples/asDecomposedPath.r
@@ -82,7 +82,7 @@ setMethod(
 setMethod(
   f = "asDecomposedPath", 
   signature = signature(
-    path = "RappFilesystemFileS3"
+    path = "File.S3"
   ), 
   definition = function(
     path,
@@ -101,7 +101,7 @@ setMethod(
 #' See \code{\link[base]{asDecomposedPath}}
 #' 
 #' @inheritParams asDecomposedPath
-#' @param path \code{\link{RappFilesystemDirectoryS3}}.  
+#' @param path \code{\link{Directory.S3}}.  
 #' @return See method
 #'    \code{\link{asDecomposedPath-character-method}}.
 #' @example inst/examples/asDecomposedPath.r
@@ -115,7 +115,7 @@ setMethod(
 setMethod(
   f = "asDecomposedPath", 
   signature = signature(
-    path = "RappFilesystemDirectoryS3"
+    path = "Directory.S3"
   ), 
   definition = function(
     path,

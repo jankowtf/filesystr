@@ -10,8 +10,8 @@
 #' @template references
 #' @export .onLoad
 .onLoad <- function(libname, pkgname) {
-  setOldClass("RappFilesystemCopyResultS3")
-  setOldClass("RappFilesystemCopyResultsS3")
-  setOldClass("RappFilesystemDirectoryS3")
-  setOldClass("RappFilesystemFileS3")
+  setOldClass("CopyResult.S3")
+  setOldClass("CopyResults.S3")
+  setOldClass("Directory.S3")
+  setOldClass("File.S3")
 }

@@ -15,7 +15,7 @@ res <- asFilePath(path = path_0)
 res
 class(res)
 
-## RappFilesystemFileS3 //
+## File.S3 //
 res <- asFilePath(path = asFilePath(path_0))
 res
 class(res)

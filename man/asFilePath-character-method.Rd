@@ -16,7 +16,7 @@ Ensure file existence (\code{TRUE}) or not (\code{FALSE}, default).}
 \code{\link[filesystr]{asFilePath}}.}
 }
 \value{
-\code{RappFilesystemFileS3}. Identical to \code{path} with
+\code{File.S3}. Identical to \code{path} with
    updated class table.
 }
 \description{
@@ -40,7 +40,7 @@ res <- asFilePath(path = path_0)
 res
 class(res)
 
-## RappFilesystemFileS3 //
+## File.S3 //
 res <- asFilePath(path = asFilePath(path_0))
 res
 class(res)

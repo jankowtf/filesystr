@@ -58,11 +58,11 @@ setMethod(f = "addClassAttribute",
   class_name <- match.arg(
     class_name,
     choices = c(
-      "RappFilesystemCopyResultS3",
-      "RappFilesystemCopyResultsS3",
+      "CopyResult.S3",
+      "CopyResults.S3",
       "RappFilesystemDecomposedPathS3",
-      "RappFilesystemDirectoryS3",
-      "RappFilesystemFileS3"
+      "Directory.S3",
+      "File.S3"
     )
   )
   class(obj) <- unique(c(class_name, class(obj)))
