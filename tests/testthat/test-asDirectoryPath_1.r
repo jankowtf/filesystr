@@ -4,10 +4,10 @@ test_that("asDirectoryPath", {
   path_0  <- file.path(tempdir(), "path")
   
   ## character //
-  expected <- "Directory.S3"
+  expected <- "DirectoryPath.S3"
   expect_is(res <- asDirectoryPath(path = path_0), expected)
   
-  ## Directory.S3 //
+  ## DirectoryPath.S3 //
   expect_is(res <- asDirectoryPath(path = asDirectoryPath(path_0)), expected)
   
   ## Ensure //
@@ -32,7 +32,7 @@ test_that("strict", {
   expect_error(asDirectoryPath(path = path_0, strict = TRUE))
   expect_error(asDirectoryPath(path = tempfile(), strict = TRUE))
   
-  ## Directory.S3 //
+  ## DirectoryPath.S3 //
   expect_error(asDirectoryPath(path = asDirectoryPath(path_0), strict = TRUE))
   
   ## Ensure //

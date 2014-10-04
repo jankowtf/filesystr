@@ -14,8 +14,8 @@
 #' @return Instance of class \code{DecomposedPath.S3}.
 #' @example inst/examples/DecomposedPath.S3.r
 #' @seealso \code{
-#'    \link[filesystr]{File.S3},
-#'   	\link[filesystr]{Directory.S3}
+#'    \link[filesystr]{FilePath.S3},
+#'   	\link[filesystr]{DirectoryPath.S3}
 #' }
 #' @template author
 #' @template references

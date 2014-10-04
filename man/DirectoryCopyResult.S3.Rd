@@ -75,7 +75,7 @@ Janko Thyson \email{janko.thyson@rappster.de}
 }
 \seealso{
 \code{
-  	\link[DirectoryCopyResultsystr]{File.S3}
+  	\link[DirectoryCopyResultsystr]{FilePath.S3}
 }
 }
 

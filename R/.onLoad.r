@@ -12,6 +12,6 @@
 .onLoad <- function(libname, pkgname) {
   setOldClass("DirectoryCopyResult.S3")
   setOldClass("DirectoryCopyResults.S3")
-  setOldClass("Directory.S3")
-  setOldClass("File.S3")
+  setOldClass("DirectoryPath.S3")
+  setOldClass("FilePath.S3")
 }

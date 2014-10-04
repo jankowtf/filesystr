@@ -10,10 +10,10 @@ test_that("asFilePath", {
   path_0 <- file.path(tempdir(), "path/test.txt")
   
   ## character //
-  expected <- "File.S3"
+  expected <- "FilePath.S3"
   expect_is(res <- asFilePath(path = path_0), expected)
   
-  ## File.S3 //
+  ## FilePath.S3 //
   expect_is(res <- asFilePath(path = asFilePath(path_0)), expected)
   
   ## Ensure //
@@ -36,14 +36,14 @@ test_that("strictness", {
   path_0 <- file.path(tempdir(), "path/test.txt")
   
   ## character //
-  expected <- "File.S3"
+  expected <- "FilePath.S3"
   expect_error(res <- asFilePath(path = path_0, strict = TRUE))
   expect_error(res <- asFilePath(path = tempdir(), strict = TRUE))
   expect_is(res <- asFilePath(path = path_0, ensure = TRUE, strict = TRUE),
             expected)
   conditionalDelete(path_0, condition = tempdir())
   
-  ## File.S3 //
+  ## FilePath.S3 //
   expect_error(res <- asFilePath(path = asFilePath(path_0), strict = TRUE))
   expect_is(res <- asFilePath(path = asFilePath(path_0), ensure = TRUE,
                               strict = TRUE), expected)

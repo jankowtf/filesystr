@@ -30,11 +30,11 @@ test_that("asDecomposedPath", {
   expected <- decomposePath(path= path, shortform = TRUE)
   expect_equal(res <- asDecomposedPath(path = path, shortform = TRUE), expected)
   
-  ## Directory.S3 //
+  ## DirectoryPath.S3 //
   expected <- decomposePath(path= path)
   expect_equal(res <- asDecomposedPath(path = asDirectoryPath(path)), expected)
   
-  ## File.S3 //
+  ## FilePath.S3 //
   expected <- decomposePath(path= path)
   expect_equal(res <- asDecomposedPath(path = asFilePath(path)), expected)
   
