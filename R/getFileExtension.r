@@ -40,7 +40,7 @@ setGeneric(
 #' @seealso \code{
 #'    \link[filesystr]{getFileExtension},
 #' 		\link[filesystr]{getFileExtension-character-method},
-#'    \link[filesystr]{getFileExtension-RappFilesystemDecomposedPathS3-method}
+#'    \link[filesystr]{getFileExtension-DecomposedPath.S3-method}
 #' }
 #' @template author
 #' @template references
@@ -82,11 +82,11 @@ setMethod(
 #' @param path \code{\link{character}}. Vector of file paths. 
 #'   	Default: see \code{\link[filesystr]{getFileExtension-missing-RappCoreFilesys-RappCoreFilesys-method}}.
 #' @return See method
-#'    \link[filesystr]{getFileExtension-RappFilesystemDecomposedPathS3-method}
+#'    \link[filesystr]{getFileExtension-DecomposedPath.S3-method}
 #' @example inst/examples/getFileExtension.r
 #' @seealso \code{
 #' 		\link[filesystr]{getFileExtension},
-#'   	\link[filesystr]{getFileExtension-RappFilesystemDecomposedPathS3-method}
+#'   	\link[filesystr]{getFileExtension-DecomposedPath.S3-method}
 #' }
 #' @template author
 #' @template references
@@ -117,7 +117,7 @@ setMethod(
 #' See generic: \code{\link[filesystr]{getFileExtension}}
 #' 
 #' @inheritParams getFileExtension
-#' @param path \code{\link{RappFilesystemDecomposedPathS3}}. 
+#' @param path \code{\link{DecomposedPath.S3}}. 
 #' @return \code{\link{character}}. Vector containing file extensions or 
 #' 		\code{""} or \code{NA} for respective inputs (i.e. directory paths or
 #' 		\code{NA}).
@@ -132,7 +132,7 @@ setMethod(
 setMethod(
   f = "getFileExtension", 
   signature = signature(
-    path = "RappFilesystemDecomposedPathS3"
+    path = "DecomposedPath.S3"
   ), 
   definition = function(
     path,

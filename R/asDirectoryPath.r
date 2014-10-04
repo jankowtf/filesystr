@@ -100,10 +100,7 @@ setMethod(
   ) {
     
   return(asDirectoryPath(
-    path = filesystr::addClassAttribute(
-      obj = path, 
-      class_name = "Directory.S3"
-    ),
+    path = filesystr::Directory.S3(path),
     ensure = ensure,
     ...
   ))

@@ -1,4 +1,4 @@
-context("decomposePath_1")
+context("decomposePath_A")
 test_that(desc="decomposePath", code={
   
   carefulCleanup <- function(x, pattern=basename(tempdir())) {
@@ -42,8 +42,7 @@ test_that(desc="decomposePath", code={
     extension = c("", "tgz", "tar.gz", "", "tbz2", "tar.xz", "", "", "", NA),
     stringsAsFactors = FALSE
   )
-  expected <- filesystr::addClassAttribute(obj = expected, 
-    class_name = "RappFilesystemDecomposedPath")
+  expected <- filesystr::DecomposedPath.S3(expected)
   expect_equal(
     res <- decomposePath(path = path),
     expected
@@ -70,8 +69,7 @@ test_that(desc="decomposePath", code={
     extension = c("", "tgz", "tar.gz", "", "tbz2", "tar.xz", "", "", "", NA),
     stringsAsFactors = FALSE
   )
-  expected <- filesystr::addClassAttribute(obj = expected, 
-    class_name = "RappFilesystemDecomposedPath")
+  expected <- filesystr::DecomposedPath.S3(expected)
   expect_equal(
     res <- decomposePath(path = path, dir_slash = TRUE),
     expected
@@ -137,8 +135,7 @@ test_that(desc="decomposePath", code={
     extension = c("", "", "", "", "", "txt", "", "txt", "", "", "txt", "tgz", "tar.gz", "", "tbz2", "tar.xz", "", NA),
     stringsAsFactors = FALSE
   )
-  expected <- filesystr::addClassAttribute(obj = expected, 
-    class_name = "RappFilesystemDecomposedPath")
+  expected <- filesystr::DecomposedPath.S3(expected)
   expect_equal(
     res <- decomposePath(path = path),
     expected
@@ -194,8 +191,7 @@ test_that(desc="decomposePath", code={
     extension = c("", "", "", "", "", "txt", "", "txt", "", "", "txt", "tgz", "tar.gz", "", "tbz2", "tar.xz", "", NA),
     stringsAsFactors = FALSE
   )
-  expected <- filesystr::addClassAttribute(obj = expected, 
-    class_name = "RappFilesystemDecomposedPath")
+  expected <- filesystr::DecomposedPath.S3(expected)
   expect_equal(
     res <- decomposePath(path = path),
     expected
@@ -231,8 +227,7 @@ test_that(desc="decomposePath", code={
     extension = c("", "", "", "", "", "txt", "", "txt", "", "", "txt", "tgz", "tar.gz", "", "tbz2", "tar.xz", "", NA),
     stringsAsFactors = FALSE
   )
-  expected <- filesystr::addClassAttribute(obj = expected, 
-    class_name = "RappFilesystemDecomposedPath")
+  expected <- filesystr::DecomposedPath.S3(expected)
   expect_equal(
     res <- decomposePath(path = path, dir_slash = TRUE),
     expected
@@ -267,8 +262,7 @@ test_that(desc="decomposePath", code={
     extension = rep(c("", "", "txt", "txt", "txt", "txt"), 2),
     stringsAsFactors = FALSE
   )
-  expected <- filesystr::addClassAttribute(obj = expected, 
-    class_name = "RappFilesystemDecomposedPath")
+  expected <- filesystr::DecomposedPath.S3(expected)
   expect_equal(
     res <- decomposePath(path = path),
     expected
@@ -286,29 +280,27 @@ test_that(desc="decomposePath", code={
     extension = rep(c("", "", "txt", "txt", "txt", "txt"), 2),
     stringsAsFactors = FALSE
   )
-  expected <- filesystr::addClassAttribute(obj = expected, 
-    class_name = "RappFilesystemDecomposedPath")
+  expected <- filesystr::DecomposedPath.S3(expected)
   expect_equal(
     res <- decomposePath(path = path, dir_slash = TRUE),
     expected
   )
 
-  column = "directory"
-  idx <- res[[column]] != expected[[column]]
-  which(idx)
-  res[[column]][idx]
-  expected[[column]][idx]
-  path[idx]
+#   column = "directory"
+#   idx <- res[[column]] != expected[[column]]
+#   which(idx)
+#   res[[column]][idx]
+#   expected[[column]][idx]
+#   path[idx]
 
   expected <- data.frame(
     directory = NA_character_,
     filename = NA_character_,
     extension = NA_character_
   )[-1,]
-  expected <- filesystr::addClassAttribute(obj = expected, 
-    class_name = "RappFilesystemDecomposedPath")
-  expect_equal(
-    decomposePath(path=character()),
+  expected <- filesystr::DecomposedPath.S3(expected)
+  expect_equivalent(
+    decomposePath(path = character()),
     expected
   )
   
@@ -327,8 +319,7 @@ test_that(desc="decomposePath", code={
     extension = c(rep("", 2)),
     stringsAsFactors = FALSE
   )
-  expected <- filesystr::addClassAttribute(obj = expected, 
-    class_name = "RappFilesystemDecomposedPath")
+  expected <- filesystr::DecomposedPath.S3(expected)
   expect_identical(
     res <- decomposePath(path = path),
     expected
@@ -343,8 +334,7 @@ test_that(desc="decomposePath", code={
     extension = c(rep("", 2)),
     stringsAsFactors = FALSE
   )
-  expected <- filesystr::addClassAttribute(obj = expected, 
-    class_name = "RappFilesystemDecomposedPath")
+  expected <- filesystr::DecomposedPath.S3(expected)
   expect_identical(
     res <- decomposePath(path = path, dir_slash = TRUE),
     expected
@@ -361,8 +351,7 @@ test_that(desc="decomposePath", code={
     extension = c(rep("", 4)),
     stringsAsFactors = FALSE
   )
-  expected <- filesystr::addClassAttribute(obj = expected, 
-    class_name = "RappFilesystemDecomposedPath")
+  expected <- filesystr::DecomposedPath.S3(expected)
   expect_identical(
     res <- decomposePath(path = path, dir_slash = TRUE),
     expected
@@ -374,3 +363,60 @@ test_that(desc="decomposePath", code={
   })
   
 })
+
+context("decomposePath_B")
+test_that(desc="decomposePath", code={
+  
+  path <- c(
+    ".",
+    "..",
+    "dir_a/", 
+    "dir_b/", 
+    "dir_b/sub_1/",
+    "dir_b/sub_1/file.txt",
+    "dir_b/nonex/",
+    "dir_b/nonex/file.txt",
+    "nonex/",
+    "nonex/sub_1/",
+    "nonex/sub_1/file.txt",
+    "nonex/foo.tgz", 
+    "another nonex\\file.tar.gz", 
+    "a_file", 
+    "quux. quuux.tbz2", 
+    "~/file.tar.xz",
+    "", 
+    NA_character_
+  )
+  expected <- data.frame(
+    directory = c(
+      ".",
+      "..",
+      "dir_a", 
+      "dir_b", 
+      "dir_b/sub_1",
+      "dir_b/sub_1",
+      "dir_b/nonex",
+      "dir_b/nonex",
+      "nonex",
+      "nonex/sub_1",
+      "nonex/sub_1",
+      "nonex", 
+      "another nonex", 
+      "a_file", 
+      ".", 
+      "~",
+      "", 
+      NA_character_
+    ),
+    filename = c("", "", "", "", "", "file", "", "file", "", "", "file", "foo", "file", "", "quux. quuux", "file", "", NA),
+    extension = c("", "", "", "", "", "txt", "", "txt", "", "", "txt", "tgz", "tar.gz", "", "tbz2", "tar.xz", "", NA),
+    stringsAsFactors = FALSE
+  )
+  expected <- filesystr::DecomposedPath.S3(expected)
+  expect_equal(
+    res <- decomposePath(path = path, shortform = TRUE),
+    expected
+  )
+  
+})
+

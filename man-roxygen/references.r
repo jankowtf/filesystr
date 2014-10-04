@@ -1,1 +1,1 @@
-#' @references \url{http://www.rappster.de/rapp/filesystr}
+#' @references \url{https://github.com/Rappster/filesystr}

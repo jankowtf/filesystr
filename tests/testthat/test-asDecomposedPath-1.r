@@ -38,7 +38,7 @@ test_that("asDecomposedPath", {
   expected <- decomposePath(path= path)
   expect_equal(res <- asDecomposedPath(path = asFilePath(path)), expected)
   
-  ## RappFilesystemDecomposedPathS3 //
+  ## DecomposedPath.S3 //
   expected <- decomposePath(path= path)
   expect_equal(res <- asDecomposedPath(path = decomposePath(path)), expected)
   
