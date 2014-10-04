@@ -1,4 +1,4 @@
-filesystr (v0.1.2)
+filesystr (v0.1.3)
 ======
 
 Functionality for processing file system ressources

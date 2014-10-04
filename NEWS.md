@@ -1,3 +1,20 @@
+# CHANGES IN VERSION 0.1.3
+
+## NEW FEATURES
+
+- added: `conditionalDelete()`
+  Delete file system ressources based on a condition. 
+
+## BUG FIXES
+
+## MAJOR CHANGES
+
+## MINOR CHANGES
+
+## MISC
+
+-----
+
 # CHANGES IN VERSION 0.1.2
 
 ## NEW FEATURES
