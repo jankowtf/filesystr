@@ -9,6 +9,10 @@
 #'    Object containing file path information.
 #' @param ensure \code{logical}.
 #'    Ensure file existence (\code{TRUE}) or not (\code{FALSE}, default).
+#' @param strict \code{\link{logical}}.
+#'    \code{TRUE}: \code{path} must exist and be a file;
+#'    \code{FALSE}: no prior checks. If \code{ensure = TRUE} then this is 
+#'    automatically set to \code{FALSE}.
 #' @param ... Further arguments of:
 #'    \code{\link[filesystr]{asFilePath}}.
 #' @example inst/examples/asFilePath.r
@@ -26,13 +30,14 @@ setGeneric(
   def = function(
     path = ".",
     ensure = FALSE,
+    strict = FALSE,
     ...
   ) {
   standardGeneric("asFilePath")
 })
 
 #' @title 
-#' As File
+#' As File Path
 #'
 #' @description 
 #' See \code{\link[base]{asFilePath}}
@@ -56,12 +61,14 @@ setMethod(
   definition = function(
     path,
     ensure,
+    strict,
     ...
   ) {
     
   return(asFilePath(
-    path = filesystr::File.S3(path),
+    path = filesystr::File.S3(standardizePath(path)),
     ensure = ensure,
+    strict = strict,
     ...
   ))
   
@@ -69,7 +76,7 @@ setMethod(
 )
 
 #' @title 
-#' As File
+#' As File Path
 #'
 #' @description 
 #' See \code{\link[base]{asFilePath}}
@@ -94,13 +101,29 @@ setMethod(
   definition = function(
     path,
     ensure,
+    strict,
     ...
   ) {
   
   if (ensure) {
+    strict <- FALSE
     ensureDirectory(path = dirname(path), ...)
     file.create(path, showWarnings = FALSE)
   }    
+  if (strict) {
+    is_file <- !file.info(path)$isdir
+    if (is.na(is_file) || !is_file) {
+      conditionr::signalCondition(
+        condition = "NoAFilePath",
+        msg = c(
+          "Not a file path",
+          Path = path
+        ),
+        ns = "filesystr",
+        type = "error"
+      )
+    }
+  }
   path
     
   } 
