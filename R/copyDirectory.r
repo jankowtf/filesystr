@@ -25,7 +25,7 @@
 #' @template threedot
 #' @example inst/examples/copyDirectory.r
 #' @seealso \code{
-#' 		\link[rapp.core.filesys]{copyDirectory-character-character-character-method}
+#' 		\link[filesystr]{copyDirectory-character-character-character-method}
 #' }
 #' @template author
 #' @template references
@@ -54,7 +54,7 @@ setGeneric(
 #' Copy Directory/Directories
 #'
 #' @description 
-#' See generic: \code{\link[rapp.core.filesys]{copyDirectory}}
+#' See generic: \code{\link[filesystr]{copyDirectory}}
 #' 
 #' @inheritParams copyDirectory
 #' @param from \code{\link{character}}. 
@@ -71,14 +71,14 @@ setGeneric(
 #'    not each file was successfully copied is invisibly returned.
 #' @example inst/examples/copyDirectory.r
 #' @seealso \code{
-#' 		\link[rapp.core.filesys]{copyDirectory}
+#' 		\link[filesystr]{copyDirectory}
 #' }
 #' @template author
 #' @template references
 #' @export
 ## @import assertive 
 ## @import plyr
-#' @import rapp.core.condition
+#' @import conditionr
 setMethod(
   f = "copyDirectory", 
   signature = signature(
@@ -109,7 +109,7 @@ setMethod(
         "Target directory does not exist",
         path = to[idx]
       ),
-      ns = "rapp.core.filesys",
+      ns = "filesystr",
       type="error"
     )
   } else {
@@ -156,7 +156,7 @@ setMethod(
         )
       }
       out <- list(from = from, to = to, elements = tmp)
-      out <- rapp.core.filesys::addClassAttribute(obj = out, 
+      out <- filesystr::addClassAttribute(obj = out, 
         class_name = "RappFilesystemCopyResultS3")
     },
     warning = function(cond) {
@@ -180,7 +180,7 @@ setMethod(
     SIMPLIFY = FALSE,
     USE.NAMES = FALSE
   )
-  out <- rapp.core.filesys::addClassAttribute(
+  out <- filesystr::addClassAttribute(
     obj = out, 
     class_name = "RappFilesystemCopyResultsS3"
   )

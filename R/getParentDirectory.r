@@ -13,8 +13,8 @@
 #' @template threedot
 #' @example inst/examples/getParentDirectory.r
 #' @seealso \code{
-#'   	\link[rapp.core.filesys]{getParentDirectory},
-#' 		\link[rapp.core.filesys]{getParentDirectory-character-method}
+#'   	\link[filesystr]{getParentDirectory},
+#' 		\link[filesystr]{getParentDirectory-character-method}
 #' }
 #' @template author
 #' @template references
@@ -37,7 +37,7 @@ setGeneric(
 #' Get Path of Parent Directory (Vectorized)
 #'
 #' @description 
-#' See generic: \code{\link[rapp.core.filesys]{getParentDirectory}}.
+#' See generic: \code{\link[filesystr]{getParentDirectory}}.
 #' 
 #' @note 
 #' The function is multi-vectorized: arguments \code{x} and \code{up}
@@ -52,12 +52,12 @@ setGeneric(
 #' 		directories based on \code{up}.
 #' @example inst/examples/getParentDirectory.r
 #' @seealso \code{
-#' 		\link[rapp.core.filesys]{getParentDirectory}
+#' 		\link[filesystr]{getParentDirectory}
 #' }
 #' @template author
 #' @template references
 #' @export
-#' @import rapp.core.condition
+#' @import conditionr
 setMethod(
   f = "getParentDirectory", 
   signature = signature(
@@ -83,14 +83,14 @@ setMethod(
     } else {
       idx <- length(idx)
       if (up > (idx + 1)) {
-        rapp.core.condition::signalCondition(
+        conditionr::signalCondition(
           condition="InvalidParentDirectoryScope",
           msg=c(
             "Parent directory scope exceeds path components",
             Path = path,
             Up = up
           ),
-          ns = "rapp.core.filesys",
+          ns = "filesystr",
           type="error"
         )
       }

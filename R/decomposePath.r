@@ -52,10 +52,10 @@
 #' 		\code{dirname(getwd()} (i.e. \code{".."} and \code{HOME} (i.e. \code{"~"})
 #' 		or not (\code{FALSE}, default).
 #' @param ... Further arguments passed to:
-#'    \code{\link[rapp.core.filesys]{standardizePath}}
+#'    \code{\link[filesystr]{standardizePath}}
 #' @example inst/examples/decomposePath.r
 #' @seealso \code{
-#'    \link[rapp.core.filesys]{decomposePath-character-method}
+#'    \link[filesystr]{decomposePath-character-method}
 #' }
 #' @template author
 #' @template references
@@ -79,16 +79,16 @@ setGeneric(
 #' Decompose Path
 #'
 #' @description 
-#' See generic: \code{\link[rapp.core.filesys]{decomposePath}}.
+#' See generic: \code{\link[filesystr]{decomposePath}}.
 #' 
 #' @inheritParams decomposePath
 #' @param path \code{\link{missing}}.
 #' @return See method 
-#'    \code{\link[rapp.core.filesys]{decomposePath-character-method}}.
+#'    \code{\link[filesystr]{decomposePath-character-method}}.
 #' @example inst/examples/decomposePath.r
 #' @seealso \code{
-#' 		\link[rapp.core.filesys]{decomposePath},
-#' 		\link[rapp.core.filesys]{decomposePath-character--method}
+#' 		\link[filesystr]{decomposePath},
+#' 		\link[filesystr]{decomposePath-character--method}
 #' }
 #' @template author
 #' @template references
@@ -128,7 +128,7 @@ setMethod(
 #' @title Decompose Path
 #'
 #' @description 
-#' See generic: \code{\link[rapp.core.filesys]{decomposePath}}.
+#' See generic: \code{\link[filesystr]{decomposePath}}.
 #' 
 #' @inheritParams decomposePath
 #' @param path \code{\link{character}}. Vector of file paths. 
@@ -140,8 +140,8 @@ setMethod(
 #'    \code{recompose_path} returns a character vector of paths.
 #' @example inst/examples/decomposePath.r
 #' @seealso \code{
-#' 		\link[rapp.core.filesys]{decomposePath},
-#' 		\link[rapp.core.filesys]{decomposePath-missing-method}
+#' 		\link[filesystr]{decomposePath},
+#' 		\link[filesystr]{decomposePath-missing-method}
 #' }
 #' @template author
 #' @template references
@@ -277,7 +277,7 @@ setMethod(
 #      class(decomposed_path)
 #    )
 #   )
-  out <- rapp.core.filesys::addClassAttribute(
+  out <- filesystr::addClassAttribute(
     obj = decomposed_path, 
     class_name = "RappFilesystemDecomposedPathS3")
   

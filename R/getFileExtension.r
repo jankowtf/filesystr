@@ -9,7 +9,7 @@
 #' @template threedot
 #' @example inst/examples/getFileExtension.r
 #' @seealso \code{
-#' 		\link[rapp.core.filesys]{getFileExtension-character-method}
+#' 		\link[filesystr]{getFileExtension-character-method}
 #' }
 #' @template author
 #' @template references
@@ -31,16 +31,16 @@ setGeneric(
 #' Get File Extension
 #'
 #' @description 
-#' See generic: \code{\link[rapp.core.filesys]{getFileExtension}}
+#' See generic: \code{\link[filesystr]{getFileExtension}}
 #' 
 #' @inheritParams getFileExtension
 #' @param path \code{\link{missing}}.
-#' @references \url{http://www.rappster.de/rapp/rapp.core.filesys}
+#' @references \url{http://www.rappster.de/rapp/filesystr}
 #' @example inst/examples/getFileExtension.r
 #' @seealso \code{
-#'    \link[rapp.core.filesys]{getFileExtension},
-#' 		\link[rapp.core.filesys]{getFileExtension-character-method},
-#'    \link[rapp.core.filesys]{getFileExtension-RappFilesystemDecomposedPathS3-method}
+#'    \link[filesystr]{getFileExtension},
+#' 		\link[filesystr]{getFileExtension-character-method},
+#'    \link[filesystr]{getFileExtension-RappFilesystemDecomposedPathS3-method}
 #' }
 #' @template author
 #' @template references
@@ -76,17 +76,17 @@ setMethod(
 #' Get File Extension
 #'
 #' @description 
-#' See generic: \code{\link[rapp.core.filesys]{getFileExtension}}
+#' See generic: \code{\link[filesystr]{getFileExtension}}
 #' 
 #' @inheritParams getFileExtension
 #' @param path \code{\link{character}}. Vector of file paths. 
-#'   	Default: see \code{\link[rapp.core.filesys]{getFileExtension-missing-RappCoreFilesys-RappCoreFilesys-method}}.
+#'   	Default: see \code{\link[filesystr]{getFileExtension-missing-RappCoreFilesys-RappCoreFilesys-method}}.
 #' @return See method
-#'    \link[rapp.core.filesys]{getFileExtension-RappFilesystemDecomposedPathS3-method}
+#'    \link[filesystr]{getFileExtension-RappFilesystemDecomposedPathS3-method}
 #' @example inst/examples/getFileExtension.r
 #' @seealso \code{
-#' 		\link[rapp.core.filesys]{getFileExtension},
-#'   	\link[rapp.core.filesys]{getFileExtension-RappFilesystemDecomposedPathS3-method}
+#' 		\link[filesystr]{getFileExtension},
+#'   	\link[filesystr]{getFileExtension-RappFilesystemDecomposedPathS3-method}
 #' }
 #' @template author
 #' @template references
@@ -114,7 +114,7 @@ setMethod(
 #' Get File Extension
 #'
 #' @description 
-#' See generic: \code{\link[rapp.core.filesys]{getFileExtension}}
+#' See generic: \code{\link[filesystr]{getFileExtension}}
 #' 
 #' @inheritParams getFileExtension
 #' @param path \code{\link{RappFilesystemDecomposedPathS3}}. 
@@ -123,8 +123,8 @@ setMethod(
 #' 		\code{NA}).
 #' @example inst/examples/getFileExtension.r
 #' @seealso \code{
-#' 		\link[rapp.core.filesys]{getFileExtension},
-#' 		\link[rapp.core.filesys]{getFileExtension-missing-method}
+#' 		\link[filesystr]{getFileExtension},
+#' 		\link[filesystr]{getFileExtension-missing-method}
 #' }
 #' @template author
 #' @template references

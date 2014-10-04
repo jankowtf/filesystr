@@ -10,7 +10,7 @@ test_that("addClassAttribute", {
     "RappFilesystemFileS3"
   )
   lapply(expected, function(ii) {
-    expect_is(res <- rapp.core.filesys::addClassAttribute(
+    expect_is(res <- filesystr::addClassAttribute(
         obj = obj, 
         class_name = ii
       ), 
@@ -18,7 +18,7 @@ test_that("addClassAttribute", {
     )
   })
   
-  expect_error(rapp.core.filesys::addClassAttribute(
+  expect_error(filesystr::addClassAttribute(
     obj = obj, 
     class_name = "NonExistingClass"
   ))

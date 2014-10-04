@@ -10,7 +10,7 @@
 #'    Object containing class name information.
 #' @example inst/examples/addClassAttribute.r
 #' @seealso \code{
-#' 		\link[rapp.core.filesys]{addClassAttribute-character-method}
+#' 		\link[filesystr]{addClassAttribute-character-method}
 #' }
 #' @template author
 #' @template references
@@ -32,7 +32,7 @@ setGeneric(
 #' Add Class Attribute
 #'
 #' @description 
-#' See \code{\link[rapp.core.filesys]{addClassAttribute}}.
+#' See \code{\link[filesystr]{addClassAttribute}}.
 #' 
 #' @inheritParams addClassAttribute
 #' @param obj \code{\link{ANY}}.  
@@ -40,7 +40,7 @@ setGeneric(
 #' @return Object with updated class graph (\code{c(<class_name>, <class>)}) 
 #' 		with the first entry corresponding to \code{class_name}.
 #' @seealso \code{
-#' 		\link[rapp.core.filesys]{addClassAttribute}
+#' 		\link[filesystr]{addClassAttribute}
 #' }
 #' @template author
 #' @template references

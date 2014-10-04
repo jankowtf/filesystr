@@ -8,7 +8,7 @@
 #' @param path \strong{Signature argument}.
 #'    Object containing path information.
 #' @param ... Further arguments of:
-#'    \code{\link[rapp.core.filesys]{decomposePath}}.
+#'    \code{\link[filesystr]{decomposePath}}.
 #' @example inst/examples/asDecomposedPath.r
 #' @seealso \code{
 #'    \link[base]{asDecomposedPath-character-method}

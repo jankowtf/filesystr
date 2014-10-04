@@ -10,7 +10,7 @@
 #' @param ensure \code{logical}.
 #'    Ensure file existence (\code{TRUE}) or not (\code{FALSE}, default).
 #' @param ... Further arguments of:
-#'    \code{\link[rapp.core.filesys]{asFilePath}}.
+#'    \code{\link[filesystr]{asFilePath}}.
 #' @example inst/examples/asFilePath.r
 #' @seealso \code{
 #'    \link[base]{asFilePath-character-method}
@@ -60,7 +60,7 @@ setMethod(
   ) {
     
   return(asFilePath(
-    path = rapp.core.filesys::addClassAttribute(
+    path = filesystr::addClassAttribute(
       obj = path, 
       class_name = "RappFilesystemFileS3"
     ),

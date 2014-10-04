@@ -38,7 +38,7 @@ setGeneric(
 #' Create Directory
 #'
 #' @description 
-#' See \code{\link[rapp.core.filesys]{ensureDirectory}}.
+#' See \code{\link[filesystr]{ensureDirectory}}.
 #' 
 #' @inheritParams ensureDirectory
 #' @param path \code{\link{character}}.
@@ -46,7 +46,7 @@ setGeneric(
 #' 		for failure.
 #' @example inst/examples/ensureDirectory.r
 #' @seealso \code{
-#' 		\link[rapp.core.filesys]{ensureDirectory}
+#' 		\link[filesystr]{ensureDirectory}
 #' }
 #' @template author
 #' @template references
@@ -76,7 +76,7 @@ setMethod(
 #' Create Directory
 #'
 #' @description 
-#' See \code{\link[rapp.core.filesys]{ensureDirectory}}.
+#' See \code{\link[filesystr]{ensureDirectory}}.
 #' 
 #' @inheritParams ensureDirectory
 #' @param path \code{\link{RappFilesystemDirectoryS3}}.
@@ -84,12 +84,12 @@ setMethod(
 #' 		for failure.
 #' @example inst/examples/ensureDirectory.r
 #' @seealso \code{
-#' 		\link[rapp.core.filesys]{ensureDirectory}
+#' 		\link[filesystr]{ensureDirectory}
 #' }
 #' @template author
 #' @template references
 #' @export
-#' @import rapp.core.condition
+#' @import conditionr
 setMethod(
   f = "ensureDirectory", 
   signature = signature(
@@ -120,13 +120,13 @@ setMethod(
     },
     error = function(cond) {
       if (strict) {
-        rapp.core.condition::signalCondition(
+        conditionr::signalCondition(
           condition = "DirectoryEnsuranceFailed",
           msg = c(
             "Failed to ensure directory",
             "Actual message" = conditionMessage(cond)
           ),
-          ns = "rapp.core.filesys",
+          ns = "filesystr",
           type = "error"
         )
       } else {

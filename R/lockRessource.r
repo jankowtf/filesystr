@@ -11,10 +11,10 @@
 #'    \code{FALSE}: non-existing ressources result in return value of \code{FALSE}.
 #' @param ... Further arguments passed to subsequent functions/methods.
 #'    In particular:
-#' 		\code{\link[rapp.core.filesys]{getLockFileName}}.
+#' 		\code{\link[filesystr]{getLockFileName}}.
 #' @example inst/examples/lockRessource.r
 #' @seealso \code{
-#'    \link[rapp.core.filesys]{lockRessource-character-method}
+#'    \link[filesystr]{lockRessource-character-method}
 #' }
 #' @template author
 #' @template references
@@ -37,14 +37,14 @@ setGeneric(
 #' Lock File System Ressource
 #' 
 #' @description 
-#' See generic: \code{\link[rapp.core.filesys]{lockRessource}}
+#' See generic: \code{\link[filesystr]{lockRessource}}
 #' 
 #' @inheritParams lockRessource
 #' @param path \code{\link{character}}. File path. 
 #' @return \code{\link{character}}. Lock file name.
 #' @example inst/examples/lockRessource.r
 #' @seealso \code{
-#'    \link[rapp.core.filesys]{lockRessource}
+#'    \link[filesystr]{lockRessource}
 #' }
 #' @template author
 #' @template references
@@ -79,13 +79,13 @@ setMethod(
     if (!strict) {
       out <- FALSE
     } else {
-      rapp.core.condition::signalCondition(
+      conditionr::signalCondition(
         condition = "InvalidFileSystemRessource",
         msg = c(
           "Ressource does not exist",
           Path = path
         ),
-        ns = "rapp.core.filesys",
+        ns = "filesystr",
         type = "error"
       )
     }

@@ -16,11 +16,11 @@
 #'    \code{FALSE}: when \code{try_limit} is reached, method returns with \code{FALSE}.
 #' @param ... Further arguments passed to subsequent functions/methods.
 #'    In particular:
-#' 		\code{\link[rapp.core.filesys]{isRessourceLocked}, 
-#'   	\link[rapp.core.filesys]{lockRessource}}.
+#' 		\code{\link[filesystr]{isRessourceLocked}, 
+#'   	\link[filesystr]{lockRessource}}.
 #' @example inst/examples/tryLockRessource.r
 #' @seealso \code{
-#'    \link[rapp.core.filesys]{tryLockRessource-character-method}
+#'    \link[filesystr]{tryLockRessource-character-method}
 #' }
 #' @template author
 #' @template references
@@ -44,7 +44,7 @@ setGeneric(
 #' Manage File System Ressource Lock Status
 #' 
 #' @description 
-#' See generic: \code{\link[rapp.core.filesys]{tryLockRessource}}
+#' See generic: \code{\link[filesystr]{tryLockRessource}}
 #' 
 #' @inheritParams tryLockRessource
 #' @param path \code{\link{character}}. File path. 
@@ -52,12 +52,12 @@ setGeneric(
 #'    \code{FALSE}: lock failed.
 #' @example inst/examples/tryLockRessource.r
 #' @seealso \code{
-#'    \link[rapp.core.filesys]{tryLockRessource}
+#'    \link[filesystr]{tryLockRessource}
 #' }
 #' @template author
 #' @template references
 #' @export 
-#' @import rapp.core.condition
+#' @import conditionr
 setMethod(
   f = "tryLockRessource", 
   signature = signature(
@@ -85,14 +85,14 @@ setMethod(
       if (!strict) {
         out <- FALSE
       } else {
-        rapp.core.condition::signalCondition(
+        conditionr::signalCondition(
           condition = "RegistryFileIsNotAccessible",
           msg = c(
             "Ressource is not accessible or does not exist",
             Path = path,
             Tries = try_limit
           ),
-          ns = "rapp.core.filesys",
+          ns = "filesystr",
           type = "error"
         )
       }

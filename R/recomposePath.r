@@ -3,15 +3,15 @@
 #' 
 #' @description 
 #' Recomposes path components as returned by 
-#' \code{\link[rapp.core.filesys]{decomposePath}} to complete paths.
+#' \code{\link[filesystr]{decomposePath}} to complete paths.
 #'
 #' @param path \strong{Signature argument}.
 #' 		Object containing path information.
 #' @template threedot
 #' @example inst/examples/recomposePath.r
 #' @seealso \code{
-#'    \link[rapp.core.filesys]{recomposePath-RappFilesystemDecomposePathS3-method},
-#'    \link[rapp.core.filesys]{decomposePath}
+#'    \link[filesystr]{recomposePath-RappFilesystemDecomposePathS3-method},
+#'    \link[filesystr]{decomposePath}
 #' }
 #' @template author
 #' @template references
@@ -35,12 +35,12 @@ setGeneric(
 #' Recompose Path
 #'
 #' @description 
-#' See \code{\link[rapp.core.filesys]{recomposePath}}.
+#' See \code{\link[filesystr]{recomposePath}}.
 #' 
 #' @inheritParams recomposePath
 #' @param path \code{\link{RappFilesystemDecomposedPathS3}}. 
 #'   	Decomposed path object as returned by 
-#' 		\code{\link[rapp.core.filesys]{decomposePath}}.
+#' 		\code{\link[filesystr]{decomposePath}}.
 #' @param shortform \code{\link{logical}}. Dimension: 1.
 #' 		\code{TRUE} means the short forms for \code{getwd()} (i.e. \code{"."}, 
 #' 		\code{dirname(getwd()} (i.e. \code{".."} and \code{HOME} (i.e. \code{"~"})
@@ -49,8 +49,8 @@ setGeneric(
 #' 		files).
 #' @example inst/examples/recomposePath.r
 #' @seealso \code{
-#' 		\link[rapp.core.filesys]{recomposePath},
-#' 		\link[rapp.core.filesys]{decomposePath}
+#' 		\link[filesystr]{recomposePath},
+#' 		\link[filesystr]{decomposePath}
 #' }
 #' @template author
 #' @template references

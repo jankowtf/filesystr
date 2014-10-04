@@ -10,11 +10,11 @@
 #' @param ensure \code{logical}.
 #'    Ensure Directory existence (\code{TRUE}) or not (\code{FALSE}, default).
 #' @param ... Further arguments passed to:
-#'    \code{\link[rapp.core.filesys]{ensureDirectory}}.
+#'    \code{\link[filesystr]{ensureDirectory}}.
 #' @example inst/examples/asDirectoryPath.r
 #' @seealso \code{
 #'    \link[base]{asDirectoryPath-character-method},
-#' 		\link[rapp.core.filesys]{ensureDirectory}
+#' 		\link[filesystr]{ensureDirectory}
 #' }
 #' @template author
 #' @template references
@@ -45,7 +45,7 @@ setGeneric(
 #' @example inst/examples/asDirectoryPath.r
 #' @seealso \code{
 #'    \link[base]{asDirectoryPath-character-method},
-#'     \link[rapp.core.filesys]{ensureDirectory}
+#'     \link[filesystr]{ensureDirectory}
 #' }
 #' @template author
 #' @template references
@@ -83,7 +83,7 @@ setMethod(
 #' @example inst/examples/asDirectoryPath.r
 #' @seealso \code{
 #'    \link[base]{asDirectoryPath},
-#'   	\link[rapp.core.filesys]{ensureDirectory}
+#'   	\link[filesystr]{ensureDirectory}
 #' }
 #' @template author
 #' @template references
@@ -100,7 +100,7 @@ setMethod(
   ) {
     
   return(asDirectoryPath(
-    path = rapp.core.filesys::addClassAttribute(
+    path = filesystr::addClassAttribute(
       obj = path, 
       class_name = "RappFilesystemDirectoryS3"
     ),
@@ -125,7 +125,7 @@ setMethod(
 #' @seealso \code{
 #'    \link[base]{asDirectoryPath},
 #'    \link[base]{asDirectoryPath-character-method},
-#'     \link[rapp.core.filesys]{ensureDirectory}
+#'     \link[filesystr]{ensureDirectory}
 #' }
 #' @template author
 #' @template references

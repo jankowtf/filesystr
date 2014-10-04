@@ -12,7 +12,7 @@
 #' @template threedot
 #' @example inst/examples/openRessource.r
 #' @seealso \code{
-#'    \link[rapp.core.filesys]{openRessource-character-method}
+#'    \link[filesystr]{openRessource-character-method}
 #' }
 #' @template author
 #' @template references
@@ -35,15 +35,15 @@ setGeneric(
 #' Open Directory in File System Browser
 #' 
 #' @description 
-#' See generic: \code{\link[rapp.core.filesys]{openRessource}}
+#' See generic: \code{\link[filesystr]{openRessource}}
 #' 
 #' @inheritParams openRessource
 #' @param path \code{\link{missing}}. 
 #' @return See method
-#' 		\code{\link[rapp.core.filesys]{openRessource-character-method}}.
+#' 		\code{\link[filesystr]{openRessource-character-method}}.
 #' @example inst/examples/openRessource.r
 #' @seealso \code{
-#'    \link[rapp.core.filesys]{openRessource}
+#'    \link[filesystr]{openRessource}
 #' }
 #' @template author
 #' @template references
@@ -68,7 +68,7 @@ setMethod(
 #' Open Directory in File System Browser
 #' 
 #' @description 
-#' See generic: \code{\link[rapp.core.filesys]{openRessource}}
+#' See generic: \code{\link[filesystr]{openRessource}}
 #' 
 #' @inheritParams openRessource
 #' @param path \code{\link{character}}. File path. 
@@ -77,12 +77,12 @@ setMethod(
 #'    \code{FALSE}: failed to open ressource as it does not exist.
 #' @example inst/examples/openRessource.r
 #' @seealso \code{
-#'    \link[rapp.core.filesys]{openRessource}
+#'    \link[filesystr]{openRessource}
 #' }
 #' @template author
 #' @template references
 #' @export 
-#' @import rapp.core.condition
+#' @import conditionr
 setMethod(
   f = "openRessource", 
   signature = signature(
@@ -105,13 +105,13 @@ setMethod(
     if (!strict) {
       out <- FALSE
     } else {
-      rapp.core.condition::signalCondition(
+      conditionr::signalCondition(
         condition = "InvalidFileSystemRessource",
         msg = c(
           "Ressource does not exist",
           Path = path
         ),
-        ns = "rapp.core.filesys",
+        ns = "filesystr",
         type = "error"
       )
     }

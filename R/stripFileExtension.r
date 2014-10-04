@@ -10,10 +10,10 @@
 #' 		Inlcude directory path (\code{TRUE}, default) or not (\code{FALSE}).
 #' @param ... Further arguments passed to subsequent functions/methods.
 #'    In particular:
-#'    \code{\link[rapp.core.filesys]{decomposePath}}
+#'    \code{\link[filesystr]{decomposePath}}
 #' @example inst/examples/stripFileExtension.r
 #' @seealso \code{
-#' 		\link[rapp.core.filesys]{stripFileExtension-character-method}
+#' 		\link[filesystr]{stripFileExtension-character-method}
 #' }
 #' @template author
 #' @template references
@@ -36,7 +36,7 @@ setGeneric(
 #' Get File Extension
 #'
 #' @description 
-#' See generic: \code{\link[rapp.core.filesys]{stripFileExtension}}.
+#' See generic: \code{\link[filesystr]{stripFileExtension}}.
 #' 
 #' @inheritParams stripFileExtension
 #' @param path \code{\link{missing}}.
@@ -44,11 +44,11 @@ setGeneric(
 #'   	\code{TRUE} means directory path is included, \code{FALSE} means it is
 #' 		not.
 #' @return See method
-#'    \code{\link[rapp.core.filesys]{stripFileExtension-character-method}}
+#'    \code{\link[filesystr]{stripFileExtension-character-method}}
 #' @example inst/examples/stripFileExtension.r
 #' @seealso \code{
-#' 		\link[rapp.core.filesys]{stripFileExtension},
-#' 		\link[rapp.core.filesys]{stripFileExtension-character-method}
+#' 		\link[filesystr]{stripFileExtension},
+#' 		\link[filesystr]{stripFileExtension-character-method}
 #' }
 #' @template author
 #' @template references
@@ -87,7 +87,7 @@ setMethod(
 #' Get File Extension
 #'
 #' @description 
-#' See generic: \code{\link[rapp.core.filesys]{stripFileExtension}}.
+#' See generic: \code{\link[filesystr]{stripFileExtension}}.
 #' 
 #' @inheritParams stripFileExtension
 #' @param path \code{\link{missing}}.
@@ -95,11 +95,11 @@ setMethod(
 #'     \code{TRUE} means directory path is included, \code{FALSE} means it is
 #' 		not.
 #' @return See method
-#'    \code{\link[rapp.core.filesys]{stripFileExtension-character-method}}
+#'    \code{\link[filesystr]{stripFileExtension-character-method}}
 #' @example inst/examples/stripFileExtension.r
 #' @seealso \code{
-#' 		\link[rapp.core.filesys]{stripFileExtension},
-#' 		\link[rapp.core.filesys]{stripFileExtension-missing-method}
+#' 		\link[filesystr]{stripFileExtension},
+#' 		\link[filesystr]{stripFileExtension-missing-method}
 #' }
 #' @template author
 #' @template references

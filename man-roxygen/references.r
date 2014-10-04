@@ -1,1 +1,1 @@
-#' @references \url{http://www.rappster.de/rapp/rapp.core.filesys}
+#' @references \url{http://www.rappster.de/rapp/filesystr}

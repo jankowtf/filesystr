@@ -15,7 +15,7 @@
 #' @template threedot
 #' @example inst/examples/standardizePath.r
 #' @seealso \code{
-#'    \link[rapp.core.filesys]{standardizePath-character-method}
+#'    \link[filesystr]{standardizePath-character-method}
 #' }
 #' @template author
 #' @template references
@@ -39,18 +39,18 @@ setGeneric(
 #' Standardize Path
 #' 
 #' @description 
-#' See \code{\link[rapp.core.filesys]{standardizePath}}.
+#' See \code{\link[filesystr]{standardizePath}}.
 #' 
 #' @inheritParams standardizePath
 #' @param path \code{\link{missing}}. 
 #' @param sep \code{\link{character}}. 
 #'     String separator betwen directory levels in the output.
 #' @return See method 
-#'    \code{\link[rapp.core.filesys]{standardizePath-character-method}}.
+#'    \code{\link[filesystr]{standardizePath-character-method}}.
 #' @example inst/examples/standardizePath.r
 #' @seealso \code{
-#' 		\link[rapp.core.filesys]{standardizePath}
-#' 		\link[rapp.core.filesys]{standardizePath-character-method}
+#' 		\link[filesystr]{standardizePath}
+#' 		\link[filesystr]{standardizePath-character-method}
 #' }
 #' @template author
 #' @template references
@@ -91,7 +91,7 @@ setMethod(
 #' Standardize Path
 #' 
 #' @description 
-#' See \code{\link[rapp.core.filesys]{standardizePath}}.
+#' See \code{\link[filesystr]{standardizePath}}.
 #' 
 #' @inheritParams standardizePath
 #' @param path \code{\link{character}}. Vector of file paths. 
@@ -105,7 +105,7 @@ setMethod(
 #' \code{recompose_path} returns a character vector of paths.
 #' @example inst/examples/standardizePath.r
 #' @seealso \code{
-#' 		\link[rapp.core.filesys]{standardizePath}
+#' 		\link[filesystr]{standardizePath}
 #' }
 #' @template author
 #' @template references

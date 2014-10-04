@@ -1,4 +1,4 @@
-# CHANGES IN rapp.core.filesys VERSION 0.1.1.3
+# CHANGES IN filesystr VERSION 0.1.1.3
 
 ## NEW FEATURES
 
@@ -22,7 +22,7 @@
 
 -----
 
-# CHANGES IN rapp.core.filesys VERSION 0.1.1.2
+# CHANGES IN filesystr VERSION 0.1.1.2
 
 ## NEW FEATURES
 
@@ -44,7 +44,7 @@
 
 -----
 
-# CHANGES IN rapp.core.filesys VERSION 0.1.1.1
+# CHANGES IN filesystr VERSION 0.1.1.1
 
 ## NEW FEATURES
 
@@ -59,7 +59,7 @@
 
 -----
 
-# CHANGES IN rapp.core.filesys VERSION 0.1.1
+# CHANGES IN filesystr VERSION 0.1.1
 
 Frozen: yes
 Corresponding path version: `v0.1.0.2`
@@ -74,7 +74,7 @@ Corresponding path version: `v0.1.0.2`
 
 -----
 
-# CHANGES IN rapp.core.filesys VERSION 0.1.0.2
+# CHANGES IN filesystr VERSION 0.1.0.2
 
 ## NEW FEATURES
 

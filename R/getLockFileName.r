@@ -11,7 +11,7 @@
 #' @template threedot 	
 #' @example inst/examples/getLockFileName.r
 #' @seealso \code{
-#'    \link[rapp.core.filesys]{getLockFileName-character-method}
+#'    \link[filesystr]{getLockFileName-character-method}
 #' }
 #' @template author
 #' @template references
@@ -34,14 +34,14 @@ setGeneric(
 #' Get Name of Lock File
 #' 
 #' @description 
-#' See generic: \code{\link[rapp.core.filesys]{getLockFileName}}
+#' See generic: \code{\link[filesystr]{getLockFileName}}
 #' 
 #' @inheritParams getLockFileName
 #' @param path \code{\link{character}}. File path. 
 #' @return \code{\link{character}}. Lock file name.
 #' @example inst/examples/getLockFileName.r
 #' @seealso \code{
-#'    \link[rapp.core.filesys]{getLockFileName}
+#'    \link[filesystr]{getLockFileName}
 #' }
 #' @template author
 #' @template references

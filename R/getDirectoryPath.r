@@ -7,10 +7,10 @@
 #' @param path \strong{Signature argument}.
 #' 		Object containing path information.
 #' @param ... Further arguments passed to:
-#'    \code{\link[rapp.core.filesys]{decomposePath}}
+#'    \code{\link[filesystr]{decomposePath}}
 #' @example inst/examples/getDirectoryPath.r
 #' @seealso \code{
-#' 		\link[rapp.core.filesys]{getDirectoryPath-character-method}
+#' 		\link[filesystr]{getDirectoryPath-character-method}
 #' }
 #' @template author
 #' @template references
@@ -32,16 +32,16 @@ setGeneric(
 #' Get Directory Path
 #'
 #' @description 
-#' See generic: \code{\link[rapp.core.filesys]{getDirectoryPath}}
+#' See generic: \code{\link[filesystr]{getDirectoryPath}}
 #' 
 #' @inheritParams getDirectoryPath
 #' @param path \code{\link{missing}}.
-#' @references \url{http://www.rappster.de/rapp/rapp.core.filesys}
+#' @references \url{http://www.rappster.de/rapp/filesystr}
 #' @example inst/examples/getDirectoryPath.r
 #' @seealso \code{
-#'    \link[rapp.core.filesys]{getDirectoryPath},
-#' 		\link[rapp.core.filesys]{getDirectoryPath-character-method},
-#'    \link[rapp.core.filesys]{getDirectoryPath-RappFilesystemDecomposedPathS3-method}
+#'    \link[filesystr]{getDirectoryPath},
+#' 		\link[filesystr]{getDirectoryPath-character-method},
+#'    \link[filesystr]{getDirectoryPath-RappFilesystemDecomposedPathS3-method}
 #' }
 #' @template author
 #' @template references
@@ -77,17 +77,17 @@ setMethod(
 #' Get Directory Path
 #'
 #' @description 
-#' See generic: \code{\link[rapp.core.filesys]{getDirectoryPath}}
+#' See generic: \code{\link[filesystr]{getDirectoryPath}}
 #' 
 #' @inheritParams getDirectoryPath
 #' @param path \code{\link{character}}. Vector of file paths. 
-#'   	Default: see \code{\link[rapp.core.filesys]{getDirectoryPath-missing-RappCoreDirectorysys-RappCoreDirectorysys-method}}.
+#'   	Default: see \code{\link[filesystr]{getDirectoryPath-missing-RappCoreDirectorysys-RappCoreDirectorysys-method}}.
 #' @return See method
-#'    \link[rapp.core.filesys]{getDirectoryPath-RappFilesystemDecomposedPathS3-method}
+#'    \link[filesystr]{getDirectoryPath-RappFilesystemDecomposedPathS3-method}
 #' @example inst/examples/getDirectoryPath.r
 #' @seealso \code{
-#' 		\link[rapp.core.filesys]{getDirectoryPath},
-#'   	\link[rapp.core.filesys]{getDirectoryPath-RappFilesystemDecomposedPathS3-method}
+#' 		\link[filesystr]{getDirectoryPath},
+#'   	\link[filesystr]{getDirectoryPath-RappFilesystemDecomposedPathS3-method}
 #' }
 #' @template author
 #' @template references
@@ -115,7 +115,7 @@ setMethod(
 #' Get Directory Path
 #'
 #' @description 
-#' See generic: \code{\link[rapp.core.filesys]{getDirectoryPath}}
+#' See generic: \code{\link[filesystr]{getDirectoryPath}}
 #' 
 #' @inheritParams getDirectoryPath
 #' @param path \code{\link{RappFilesystemDecomposedPathS3}}. 
@@ -124,8 +124,8 @@ setMethod(
 #' 		\code{NA}).
 #' @example inst/examples/getDirectoryPath.r
 #' @seealso \code{
-#' 		\link[rapp.core.filesys]{getDirectoryPath},
-#' 		\link[rapp.core.filesys]{getDirectoryPath-missing-method}
+#' 		\link[filesystr]{getDirectoryPath},
+#' 		\link[filesystr]{getDirectoryPath-missing-method}
 #' }
 #' @template author
 #' @template references

@@ -42,7 +42,7 @@ test_that(desc="decomposePath", code={
     extension = c("", "tgz", "tar.gz", "", "tbz2", "tar.xz", "", "", "", NA),
     stringsAsFactors = FALSE
   )
-  expected <- rapp.core.filesys::addClassAttribute(obj = expected, 
+  expected <- filesystr::addClassAttribute(obj = expected, 
     class_name = "RappFilesystemDecomposedPath")
   expect_equal(
     res <- decomposePath(path = path),
@@ -70,7 +70,7 @@ test_that(desc="decomposePath", code={
     extension = c("", "tgz", "tar.gz", "", "tbz2", "tar.xz", "", "", "", NA),
     stringsAsFactors = FALSE
   )
-  expected <- rapp.core.filesys::addClassAttribute(obj = expected, 
+  expected <- filesystr::addClassAttribute(obj = expected, 
     class_name = "RappFilesystemDecomposedPath")
   expect_equal(
     res <- decomposePath(path = path, dir_slash = TRUE),
@@ -137,7 +137,7 @@ test_that(desc="decomposePath", code={
     extension = c("", "", "", "", "", "txt", "", "txt", "", "", "txt", "tgz", "tar.gz", "", "tbz2", "tar.xz", "", NA),
     stringsAsFactors = FALSE
   )
-  expected <- rapp.core.filesys::addClassAttribute(obj = expected, 
+  expected <- filesystr::addClassAttribute(obj = expected, 
     class_name = "RappFilesystemDecomposedPath")
   expect_equal(
     res <- decomposePath(path = path),
@@ -194,7 +194,7 @@ test_that(desc="decomposePath", code={
     extension = c("", "", "", "", "", "txt", "", "txt", "", "", "txt", "tgz", "tar.gz", "", "tbz2", "tar.xz", "", NA),
     stringsAsFactors = FALSE
   )
-  expected <- rapp.core.filesys::addClassAttribute(obj = expected, 
+  expected <- filesystr::addClassAttribute(obj = expected, 
     class_name = "RappFilesystemDecomposedPath")
   expect_equal(
     res <- decomposePath(path = path),
@@ -231,7 +231,7 @@ test_that(desc="decomposePath", code={
     extension = c("", "", "", "", "", "txt", "", "txt", "", "", "txt", "tgz", "tar.gz", "", "tbz2", "tar.xz", "", NA),
     stringsAsFactors = FALSE
   )
-  expected <- rapp.core.filesys::addClassAttribute(obj = expected, 
+  expected <- filesystr::addClassAttribute(obj = expected, 
     class_name = "RappFilesystemDecomposedPath")
   expect_equal(
     res <- decomposePath(path = path, dir_slash = TRUE),
@@ -267,7 +267,7 @@ test_that(desc="decomposePath", code={
     extension = rep(c("", "", "txt", "txt", "txt", "txt"), 2),
     stringsAsFactors = FALSE
   )
-  expected <- rapp.core.filesys::addClassAttribute(obj = expected, 
+  expected <- filesystr::addClassAttribute(obj = expected, 
     class_name = "RappFilesystemDecomposedPath")
   expect_equal(
     res <- decomposePath(path = path),
@@ -286,7 +286,7 @@ test_that(desc="decomposePath", code={
     extension = rep(c("", "", "txt", "txt", "txt", "txt"), 2),
     stringsAsFactors = FALSE
   )
-  expected <- rapp.core.filesys::addClassAttribute(obj = expected, 
+  expected <- filesystr::addClassAttribute(obj = expected, 
     class_name = "RappFilesystemDecomposedPath")
   expect_equal(
     res <- decomposePath(path = path, dir_slash = TRUE),
@@ -305,7 +305,7 @@ test_that(desc="decomposePath", code={
     filename = NA_character_,
     extension = NA_character_
   )[-1,]
-  expected <- rapp.core.filesys::addClassAttribute(obj = expected, 
+  expected <- filesystr::addClassAttribute(obj = expected, 
     class_name = "RappFilesystemDecomposedPath")
   expect_equal(
     decomposePath(path=character()),
@@ -327,7 +327,7 @@ test_that(desc="decomposePath", code={
     extension = c(rep("", 2)),
     stringsAsFactors = FALSE
   )
-  expected <- rapp.core.filesys::addClassAttribute(obj = expected, 
+  expected <- filesystr::addClassAttribute(obj = expected, 
     class_name = "RappFilesystemDecomposedPath")
   expect_identical(
     res <- decomposePath(path = path),
@@ -343,7 +343,7 @@ test_that(desc="decomposePath", code={
     extension = c(rep("", 2)),
     stringsAsFactors = FALSE
   )
-  expected <- rapp.core.filesys::addClassAttribute(obj = expected, 
+  expected <- filesystr::addClassAttribute(obj = expected, 
     class_name = "RappFilesystemDecomposedPath")
   expect_identical(
     res <- decomposePath(path = path, dir_slash = TRUE),
@@ -361,7 +361,7 @@ test_that(desc="decomposePath", code={
     extension = c(rep("", 4)),
     stringsAsFactors = FALSE
   )
-  expected <- rapp.core.filesys::addClassAttribute(obj = expected, 
+  expected <- filesystr::addClassAttribute(obj = expected, 
     class_name = "RappFilesystemDecomposedPath")
   expect_identical(
     res <- decomposePath(path = path, dir_slash = TRUE),

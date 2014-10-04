@@ -2,15 +2,15 @@
 #' Is File System Ressource Locked
 #'
 #' @description 
-#' Checks if a file is locked (\code{\link[rapp.core.filesys]{isRessourceLocked}}.
+#' Checks if a file is locked (\code{\link[filesystr]{isRessourceLocked}}.
 #' 
 #' @param path \strong{Signature argument}. 
 #'    Object containing file path information.
 #' @param ... Further arguments passed to subsequent functions/methods.
-#'    \code{\link[rapp.core.filesys]{getLockFileName}}.
+#'    \code{\link[filesystr]{getLockFileName}}.
 #' @example inst/examples/isRessourceLocked.r
 #' @seealso \code{
-#'   	\link[rapp.core.filesys]{isRessourceLocked.r-character-method}
+#'   	\link[filesystr]{isRessourceLocked.r-character-method}
 #' }
 #' @template author
 #' @template references
@@ -30,19 +30,19 @@ setGeneric(
 #' Is File System Ressource Locked
 #' 
 #' @description
-#' See generic: \code{\link[rapp.core.filesys]{isRessourceLocked}}
+#' See generic: \code{\link[filesystr]{isRessourceLocked}}
 #' 
 #' @inheritParams isRessourceLocked
 #' @param path \code{\link{character}}. File path. 
 #' @return \code{\link{logical}}. \code{TRUE}: locked; \code{FALSE}: not locked.
 #' @example inst/examples/isRessourceLocked.r
 #' @seealso \code{
-#'   	\link[rapp.core.filesys]{isRessourceLocked}
+#'   	\link[filesystr]{isRessourceLocked}
 #' }
 #' @template author
 #' @template references
 #' @export 
-#' @import rapp.core.condition
+#' @import conditionr
 setMethod(
   f = "isRessourceLocked", 
   signature = signature(path = "character"), 
@@ -52,13 +52,13 @@ setMethod(
   ) {
     
   if (!file.exists(path)) {
-    rapp.core.condition::signalCondition(
+    conditionr::signalCondition(
       condition = "RessourceDoesNotExist", 
       msg = c(
         "Ressource does not exist", 
         Path = path
       ), 
-      ns = "rapp.core.filesys", 
+      ns = "filesystr", 
       type = "error"
     )
   }
