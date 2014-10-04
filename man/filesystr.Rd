@@ -8,7 +8,67 @@
 Complements base functionality with respect to handling paths of
 file system ressources.
 }
-\section{Main functions/methods of this package}{
+\section{Classes and constructors}{
+
+
+\itemize{
+   \item{\code{\link[filesystr]{Directory.S3}}: }{
+
+     Constructor function for instances of class
+     \code{\link[filesystr]{Directory.S3}}
+   }
+   \item{\code{\link[filesystr]{File.S3}}: }{
+
+     Constructor function for instances of class
+     \code{\link[filesystr]{File.S3}}
+   }
+   \item{\code{\link[filesystr]{DecomposedPath.S3}}: }{
+
+     Constructor function for instances of class
+     \code{\link[filesystr]{DecomposedPath.S3}}
+   }
+   \item{\code{\link[filesystr]{DirectoryCopyResult.S3}}: }{
+
+     Constructor function for instances of class
+     \code{\link[filesystr]{DirectoryCopyResult.S3}}
+   }
+   \item{\code{\link[filesystr]{DirectoryCopyResults.S3}}: }{
+
+     Constructor function for instances of class
+     \code{\link[filesystr]{DirectoryCopyResults.S3}}
+   }
+}
+}
+
+\section{Coercing functions/methods}{
+
+
+\itemize{
+   \item{\code{\link[filesystr]{asDirectoryPath}}: }{
+
+       Clearly denotes a path to a directory ressource
+       (provided as \code{\link{character}}) as an actual \emph{directory path}
+       of class \code{Directory.S3}. The main reason behind
+       this is to enable method dispatch based on this class.
+   }
+   \item{\code{\link[filesystr]{asFilePath}}: }{
+
+       Clearly denotes a path to a file ressource
+       (provided as \code{\link{character}}) as an actual \emph{file path}
+       of class \code{File.S3}. The main reason behind
+       this is to enable method dispatch based on this class.
+   }
+   \item{\code{\link[filesystr]{asDecomposedPath}}: }{
+
+       Clearly denotes a path to a file system ressource
+       (provided as \code{\link{character}}) as an actual \emph{decomposed path}
+       of class \code{DecomposedPath.S3}. The main reason behind
+       this is to enable method dispatch based on this class.
+   }
+ }
+}
+
+\section{Main functions/methods}{
 
 
 \itemize{
@@ -27,28 +87,7 @@ file system ressources.
 
        Extends the features of \code{\link[base]{file.copy}}.
    }
-   \item{\code{\link[filesystr]{asFilePathPath}}: }{
-
-       Clearly denotes a path to a file ressource
-       (provided as \code{\link{character}}) as an actual \emph{file path}
-       of class \code{File.S3}. The main reason behind
-       this is to enable method dispatch based on this class.
-   }
-   \item{\code{\link[filesystr]{asDirectoryPathPath}}: }{
-
-       Clearly denotes a path to a directory ressource
-       (provided as \code{\link{character}}) as an actual \emph{directory path}
-       of class \code{Directory.S3}. The main reason behind
-       this is to enable method dispatch based on this class.
-   }
-   \item{\code{\link[filesystr]{asDecomposedPath}}: }{
-
-       Clearly denotes a path to a file system ressource
-       (provided as \code{\link{character}}) as an actual \emph{decomposed path}
-       of class \code{DecomposedPath.S3}. The main reason behind
-       this is to enable method dispatch based on this class.
-   }
- }
+}
 }
 
 \section{Path component selectors and path standardization}{
@@ -118,38 +157,6 @@ The following functions can be used to lock and unlock files and directories.
      this is the system's default file system browser. For \emph{files}
      the user is asked to select a suitable application
      (\strong{only tested on Windows so far}).
-   }
-}
-}
-
-\section{Classes and constructors}{
-
-
-\itemize{
-   \item{\code{\link[filesystr]{Directory.S3}}: }{
-
-     Constructor function for instances of class
-     \code{\link[filesystr]{Directory.S3}}
-   }
-   \item{\code{\link[filesystr]{File.S3}}: }{
-
-     Constructor function for instances of class
-     \code{\link[filesystr]{File.S3}}
-   }
-   \item{\code{\link[filesystr]{DecomposedPath.S3}}: }{
-
-     Constructor function for instances of class
-     \code{\link[filesystr]{DecomposedPath.S3}}
-   }
-   \item{\code{\link[filesystr]{DirectoryCopyResult.S3}}: }{
-
-     Constructor function for instances of class
-     \code{\link[filesystr]{DirectoryCopyResult.S3}}
-   }
-   \item{\code{\link[filesystr]{DirectoryCopyResults.S3}}: }{
-
-     Constructor function for instances of class
-     \code{\link[filesystr]{DirectoryCopyResults.S3}}
    }
 }
 }
