@@ -1,32 +1,50 @@
 \dontrun{
 
-## Auxiliary function //
-.cleanTempDir <- function(x) {
-  if (grepl(basename(tempdir()), x)) {
-    unlink(x, recursive = TRUE, force = TRUE)
-  }
-}
-
+##------------------------------------------------------------------------------
+## Method: character
+##------------------------------------------------------------------------------  
+  
 ## Path //
 path_0 <- file.path(tempdir(), "path/test.txt")
 
-## character //
 res <- asFilePath(path = path_0)
 res
 class(res)
 
-## File.S3 //
+## Strict:
+try(asFilePath(path = path_0, strict = TRUE))
+## --> error as 'path' does not exist yet
+
+try(asFilePath(path = tempdir(), strict = TRUE))
+## --> error as 'path' is a directory and not a file 
+
+## Note that 'ensure' overrules 'strict':
+asFilePath(path = path_0, ensure = TRUE, strict = TRUE)
+file.exists(path_0)
+
+## Clean up //
+conditionalDelete(path = path_0, condition = tempdir())
+
+##------------------------------------------------------------------------------
+## Method: File.S3
+##------------------------------------------------------------------------------
+
+## Path //
+path_0 <- file.path(tempdir(), "path/test2.txt")
+
 res <- asFilePath(path = asFilePath(path_0))
 res
 class(res)
 
-## Ensure //
-file.exists(asFilePath(path = path_0, ensure = TRUE))
-.cleanTempDir(x = path_0)
+## Strict:
+try(res <- asFilePath(path = asFilePath(path_0), strict = TRUE))
+## --> error as 'path' does not exist yet
 
-file.exists(
-  asFilePath(path = asFilePath(path_0), ensure = TRUE)
-)
-.cleanTempDir(x = path_0)
+## Note that 'ensure' overrules 'strict':
+asFilePath(path = asFilePath(path_0), ensure = TRUE, strict = TRUE)
+file.exists(path_0)
+
+## Clean up //
+conditionalDelete(path = path_0, condition = tempdir())
 
 }

@@ -66,6 +66,12 @@ setMethod(
     ...
   ) {
   
+  ## Standardization //
+  path <- standardizePath(path = path)
+  if (file.exists(condition)) {
+    condition <- standardizePath(path = condition)
+  }
+    
   out <- sapply(path, function(ii) {
     out <- FALSE
     if (file.exists(ii)) {

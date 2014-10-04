@@ -1,12 +1,6 @@
-context("asDirectoryPath_1")
+context("asDirectoryPath_A")
 test_that("asDirectoryPath", {
 
-  .cleanTempDir <- function(x) {
-    if (grepl(basename(tempdir()), x)) {
-      unlink(x, recursive = TRUE, force = TRUE)
-    }
-  }
-  
   path_0  <- file.path(tempdir(), "path")
   
   ## character //
@@ -18,15 +12,34 @@ test_that("asDirectoryPath", {
   
   ## Ensure //
   expect_true(file.exists(asDirectoryPath(path = path_0, ensure = TRUE)))
-  .cleanTempDir(x = path_0)
+  conditionalDelete(path = path_0, condition = basename(tempdir()))
   
   expect_true(file.exists(
     asDirectoryPath(path = asDirectoryPath(path_0), ensure = TRUE)
   ))
-  .cleanTempDir(x = path_0)
-  
-  on.exit(.cleanTempDir(x = path_0))
+
+  on.exit(conditionalDelete(path = path_0, condition = basename(tempdir())))
   
   }
 )
 
+context("asDirectoryPath_B")
+test_that("strict", {
+
+  path_0  <- file.path(tempdir(), "path")
+  
+  ## character //
+  expect_error(asDirectoryPath(path = path_0, strict = TRUE))
+  expect_error(asDirectoryPath(path = tempfile(), strict = TRUE))
+  
+  ## Directory.S3 //
+  expect_error(asDirectoryPath(path = asDirectoryPath(path_0), strict = TRUE))
+  
+  ## Ensure //
+  expect_true(file.exists(asDirectoryPath(path = path_0, 
+    ensure = TRUE, strict = TRUE)))
+  
+  on.exit(conditionalDelete(path = path_0, condition = basename(tempdir())))
+  
+  }
+)
