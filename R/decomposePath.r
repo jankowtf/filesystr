@@ -177,13 +177,7 @@ setMethod(
       extension = NA_character_
     )
     out <- out[-1,]
-#     out <- structure(out, 
-#      class=c(
-#        getClassName(id="RappFilesystemDecomposedPathS3", pkg=.ctx, type="s3"), 
-#        class(out))
-#     )
-    out <- addClassAttribute(obj = out, 
-       class_name = "RappFilesystemDecomposedPathS3")
+   out <- filesystr::DecomposedPath.S3(out)
     return(out)
   }
   
@@ -271,15 +265,7 @@ setMethod(
   )
   
   ## Return value //
-#   out <- structure(decomposed_path, 
-#    class=c(
-#      getClassName(id="decomposed_path", pkg=.ctx, type="s3"), 
-#      class(decomposed_path)
-#    )
-#   )
-  out <- filesystr::addClassAttribute(
-    obj = decomposed_path, 
-    class_name = "RappFilesystemDecomposedPathS3")
+  out <- filesystr::DecomposedPath.S3(decomposed_path)
   
   ## Return //
   return(out)

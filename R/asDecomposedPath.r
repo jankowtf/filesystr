@@ -3,7 +3,7 @@
 #'
 #' @description 
 #' Coerces files system ressources' paths into objects of class
-#' \code{RappFilesystemDecomposedPathS3}.
+#' \code{DecomposedPath.S3}.
 #' 
 #' @param path \strong{Signature argument}.
 #'    Object containing path information.
@@ -134,7 +134,7 @@ setMethod(
 #' See \code{\link[base]{asDecomposedPath}}
 #' 
 #' @inheritParams asDecomposedPath
-#' @param path \code{\link{RappFilesystemDecomposedPathS3}}.  
+#' @param path \code{\link{DecomposedPath.S3}}.  
 #' @return See method
 #'    \code{\link{asDecomposedPath-character-method}}.
 #' @example inst/examples/asDecomposedPath.r
@@ -148,7 +148,7 @@ setMethod(
 setMethod(
   f = "asDecomposedPath", 
   signature = signature(
-    path = "RappFilesystemDecomposedPathS3"
+    path = "DecomposedPath.S3"
   ), 
   definition = function(
     path,

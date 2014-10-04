@@ -41,7 +41,7 @@ setGeneric(
 #' @seealso \code{
 #'    \link[filesystr]{getDirectoryPath},
 #' 		\link[filesystr]{getDirectoryPath-character-method},
-#'    \link[filesystr]{getDirectoryPath-RappFilesystemDecomposedPathS3-method}
+#'    \link[filesystr]{getDirectoryPath-DecomposedPath.S3-method}
 #' }
 #' @template author
 #' @template references
@@ -83,11 +83,11 @@ setMethod(
 #' @param path \code{\link{character}}. Vector of file paths. 
 #'   	Default: see \code{\link[filesystr]{getDirectoryPath-missing-RappCoreDirectorysys-RappCoreDirectorysys-method}}.
 #' @return See method
-#'    \link[filesystr]{getDirectoryPath-RappFilesystemDecomposedPathS3-method}
+#'    \link[filesystr]{getDirectoryPath-DecomposedPath.S3-method}
 #' @example inst/examples/getDirectoryPath.r
 #' @seealso \code{
 #' 		\link[filesystr]{getDirectoryPath},
-#'   	\link[filesystr]{getDirectoryPath-RappFilesystemDecomposedPathS3-method}
+#'   	\link[filesystr]{getDirectoryPath-DecomposedPath.S3-method}
 #' }
 #' @template author
 #' @template references
@@ -118,7 +118,7 @@ setMethod(
 #' See generic: \code{\link[filesystr]{getDirectoryPath}}
 #' 
 #' @inheritParams getDirectoryPath
-#' @param path \code{\link{RappFilesystemDecomposedPathS3}}. 
+#' @param path \code{\link{DecomposedPath.S3}}. 
 #' @return \code{\link{character}}. Vector containing file names or 
 #' 		\code{""} or \code{NA} for respective inputs (i.e. directory paths or
 #' 		\code{NA}).
@@ -133,7 +133,7 @@ setMethod(
 setMethod(
   f = "getDirectoryPath", 
   signature = signature(
-    path = "RappFilesystemDecomposedPathS3"
+    path = "DecomposedPath.S3"
   ), 
   definition = function(
     path,

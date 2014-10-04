@@ -38,7 +38,7 @@ setGeneric(
 #' See \code{\link[filesystr]{recomposePath}}.
 #' 
 #' @inheritParams recomposePath
-#' @param path \code{\link{RappFilesystemDecomposedPathS3}}. 
+#' @param path \code{\link{DecomposedPath.S3}}. 
 #'   	Decomposed path object as returned by 
 #' 		\code{\link[filesystr]{decomposePath}}.
 #' @param shortform \code{\link{logical}}. Dimension: 1.
@@ -59,7 +59,7 @@ setGeneric(
 setMethod(
   f = "recomposePath", 
   signature = signature(
-    path = "RappFilesystemDecomposedPathS3"
+    path = "DecomposedPath.S3"
   ), 
   definition = function(
     path,

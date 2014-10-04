@@ -77,7 +77,6 @@ setGeneric(
 #' @template references
 #' @export
 ## @import assertive 
-## @import plyr
 #' @import conditionr
 setMethod(
   f = "copyDirectory", 
@@ -155,9 +154,11 @@ setMethod(
           " were not copied successfully."
         )
       }
-      out <- list(from = from, to = to, elements = tmp)
-      out <- filesystr::addClassAttribute(obj = out, 
-        class_name = "CopyResult.S3")
+      nms <- names(tmp)
+      tmp <- as.numeric(tmp)
+      names(tmp) <- nms
+      out <- list(from = from, to = to, status = tmp)
+      out <- DirectoryCopyResult.S3(out)
     },
     warning = function(cond) {
       setwd(wd_0)
@@ -180,10 +181,7 @@ setMethod(
     SIMPLIFY = FALSE,
     USE.NAMES = FALSE
   )
-  out <- filesystr::addClassAttribute(
-    obj = out, 
-    class_name = "CopyResults.S3"
-  )
+  out <- DirectoryCopyResults.S3(.x = out)
   
   ## Return //
   return(out)
