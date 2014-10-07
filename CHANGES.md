@@ -1,3 +1,13 @@
+# Version 0.1.6
+ - Merge branch 'feat-fix#4' into develop
+ - fixes #4
+ - Merge branch 'master' into develop
+ - Merge branch 'release-0.1.5'
+ - build commit
+ - bump commit
+
+----------
+
 # Version 0.1.5
  - updated `README`
  - Merge branch 'master' into develop

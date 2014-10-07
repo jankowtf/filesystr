@@ -1,8 +1,12 @@
-context("openRessource_1")
+context("openRessource_A")
 test_that("openRessource", {
 
   ## Directory //
   expect_true(res <- openRessource(path = tempdir()))
+  
+  ## Relative path //
+  expect_false(res <- openRessource(path = "does-not-exist"))
+  expect_true(res <- openRessource(path = "R"))
   
   ## File //
   path <- file.path(tempdir(), "test.txt")

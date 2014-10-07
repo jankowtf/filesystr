@@ -1,4 +1,4 @@
-filesystr (v0.1.5)
+filesystr (v0.1.6)
 ======
 
 Functionality for processing file system ressources
@@ -239,9 +239,12 @@ Open file system ressource
 
 ```
 openRessource(tempdir())
+openRessource("non-existing")
+openRessource("R")
 path <- paste0(tempfile(), ".txt")
 write("hello world!", file = path)
 openRessource(path)
+openRessource("DESCRIPTION")
 ```
 
 -----

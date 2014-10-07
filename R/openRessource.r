@@ -96,7 +96,7 @@ setMethod(
   
   if (file.exists(path)) {
     if (.Platform['OS.type'] == "windows"){
-      shell.exec(path)
+      shell.exec(standardizePath(path))
     } else {
       system(paste(Sys.getenv("R_BROWSER"), path))
     }
